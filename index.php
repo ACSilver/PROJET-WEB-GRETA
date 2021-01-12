@@ -11,7 +11,13 @@ session_destroy();
 <title>Mon site</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
-<body class="centrer">
+
+
+
+<body class="centrer fond">
+
+<?php include("Vue/header.php"); ?>
+
 	<div class="corps">
 		<p>
 		<div class="contenu">
@@ -34,5 +40,7 @@ session_destroy();
 		</div>
 		</p>
 	</div>
+	<?php include("Vue/footer.php"); ?>
 </body>
 </html>
+
