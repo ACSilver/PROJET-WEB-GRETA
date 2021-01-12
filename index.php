@@ -1,7 +1,7 @@
 <?php  
 
-//session_start();
-//session_destroy();
+session_start();
+session_destroy();
 
 ?>
 
@@ -17,7 +17,7 @@
 		<div class="contenu">
 			<h3>Page d'introduction</h3>
 			<p>
-			<form method="post" action="page.php?article=intro"   >
+			<form method="post" action="vue/page.php?article=intro"   >
 					<p>
 						<label>Votre identifiant :</label>
 						<input type="text" name="id"   >
