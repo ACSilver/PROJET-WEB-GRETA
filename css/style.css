@@ -150,3 +150,57 @@
       font-weight:600
     }
   }
+
+.casesHeaderDroites,.casePremiereLigne {
+    border: 1px solid black;
+}
+.header {
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+    border-collapse: collapse;
+}
+
+.attestationTitre {
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+    background-color: #33B3FF;
+}
+
+.formationTitre{
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+.descriptionAttestation {
+    border: 1px solid black;
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+    font-weight: bold;
+    background-color: #84D1FF;
+}
+
+.grille{
+    border-collapse: collapse;
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-top: 2%;
+}
+
+.reference {
+    border-collapse: collapse;
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-top: 2%;
+}
