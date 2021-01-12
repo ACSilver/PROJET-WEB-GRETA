@@ -6,15 +6,20 @@
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
+<heeder>
+
+<?php include("Vue/header.php"); ?>
+
+</heeder>
 
 
 <body class="centrer fond">
 
-<?php include("Vue/header.php"); ?>
+
 
 	<div class="corps">
 		<p>
-		<div class="contenu">
+		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
 			<p>
 			<form method="post" action="vue/page.php?article=intro"   >
@@ -34,7 +39,10 @@
 		</div>
 		</p>
 	</div>
-	<?php include("Vue/footer.php"); ?>
+	
 </body>
+<footer class="">
+<?php include("Vue/footer.php"); ?>
+</footer>
 </html>
 
