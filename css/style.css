@@ -189,11 +189,16 @@
     margin-top: 2%;
 }
 
-.reference {
-    border-collapse: collapse;
-    text-align: center;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto ;
-    margin-top: 2%;
+.reference1 {
+  color :#3fa326;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.reference, .reference1 {
+  background-color:#d6ffe1;
+}
+
+.competence, .reference1{
+  text-align: right;
 }
