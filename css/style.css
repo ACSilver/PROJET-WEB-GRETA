@@ -1,6 +1,13 @@
 .centrer {
     text-align: center !important;
 }
+
+
+.marge{
+    margin-top: 20% !important;
+}
+
+
 .site-footer
 {
     background-color:#26272b;

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mon site</title>
+<title>Connexion</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
-<heeder>
+<header>
 
 <?php include("Vue/header.php"); ?>
 
-</heeder>
+</header>
 
 
-<body class="centrer fond">
+<body class="centrer fond " > 
 
 
 
-	<div class="corps">
+	<div class="corps" style="margin-top: 5%;" ;>
 		<p>
 		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
