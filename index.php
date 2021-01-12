@@ -1,14 +1,8 @@
-<?php  
-
-session_start();
-session_destroy();
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>Mon site</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
