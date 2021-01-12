@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="../css/style.css" />
 </head>
-  <footer class="site-footer ">
+  <footer class="site-footer fixed-bottom ">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">

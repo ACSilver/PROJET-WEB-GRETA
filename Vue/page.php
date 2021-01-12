@@ -1,22 +1,32 @@
-<?php 
-session_start();
-?>
 <!DOCTYPE html>
-	<html>
-	<head>
-		<title>page d'accuel</title>
-	</head>
-	<body>
-		<div class="corps">
-			<h1>c'est le corps</h1>
-			<div class="menu">	
-				<h1>c'est le menu</h1>
-			</div>
-			<p>
-				<div class="contenu">
-					<h1>c'est le contenu</h1>
-				</div>
-			</p>
-		</div>
-	</body>
+<html>
+<head>
+<title>Accueil</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<header>
+
+<?php include("header.php"); ?>
+
+</header>
+
+
+<body class="centrer fond " > 
+
+
+
+	<div class="corps" style="margin-top: 5%;" ;>
+
+	<p class=" centrer">Bienvenue, sur la page d'accueil! <br/> Merci d'utiliser notre service de technologie 2.0 ! 
+	</p>
+
+	</div>
+	
+</body>
+<footer class="">
+<?php include("footer.php"); ?>
+</footer>
 </html>
+

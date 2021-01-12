@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="../css/style.css" />
     </head>
     <body class="truc"> <!-- Header pour le formateur  -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Accueil</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,15 +26,15 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
       </form>
     </div>
   </div>
 </nav>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Header pour le stagiaire  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> Header pour le stagiaire  
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Accueil</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,15 +50,16 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
       </form>
     </div>
   </div>
 </nav>
 
+-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Header pour l'admin  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Header pour l'admin  -->
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Accueil</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,8 +81,8 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Recherche</button>
       </form>
     </div>
   </div>
