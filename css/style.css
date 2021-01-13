@@ -191,7 +191,7 @@
     border-collapse: collapse;
     text-align: center;
     width: 60%;
-    margin-left: auto;
+    margin-left: 20%;
     margin-right: auto ;
     margin-top: 2%;
 }
@@ -208,4 +208,16 @@
 
 .competence, .reference1{
   text-align: right;
+}
+
+.colonne1 {
+  width:10%;
+  background-color: #3B8EBD;
+  color:white;
+}
+
+.colonne2 {
+  width:7%;
+  background-color: #3B8EBD;
+  color:white;
 }
