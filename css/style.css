@@ -151,7 +151,7 @@
     }
   }
 
-.border1 {
+.border1,.gen-input {
     border: 1px solid black;
 }
 .header {
@@ -244,9 +244,8 @@
   font-weight: bold;
 }
 
-footer{
-
-  margin: auto;
-
-  position: relative;
+.fonctions {
+  border: black solid 1px;
+  padding-bottom: 20px;
+  background-color: grey;
 }
