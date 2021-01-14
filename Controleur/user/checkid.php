@@ -10,7 +10,7 @@ $_SESSION['valide'] = "";
 require('Modèle/connect.php');
 
 
-//j'ai créé une fonction appelée (vérifier si), cette fonction prend 2 paramètres
+//j'ai créé une fonction appelée (checkid), cette fonction prend 2 paramètres
   function checkid($id,$mdp){ 
 
   	//j'essaye de me connecter à la base de données mais s'il y a un problème, une erreur apparaît
