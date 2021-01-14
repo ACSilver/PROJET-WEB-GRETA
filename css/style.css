@@ -243,3 +243,10 @@
   background-color: #66EE38;
   font-weight: bold;
 }
+
+footer{
+
+  margin: auto;
+
+  position: relative;
+}
