@@ -1,3 +1,28 @@
+<?php  
+
+session_start();
+
+// si il n'y a pas de id ou mdp on arrete
+if(empty($_POST["id"]) || empty($_POST["mdp"]))
+	{
+		$message = 'All fields are required';
+		echo $message ;
+		session_destroy();
+	}
+else
+{
+	$id=$_POST['id'];
+	$mdp=$_POST['mdp'];
+	$_SESSION['id'] = $id;
+	$_SESSION['mdp'] = $mdp;
+	// appeler une fonction pour vérifier si l'identifiant existe
+	include('Controleur/user/checkid.php');
+	mdpcheck($id);
+
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +47,7 @@
 		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
 			<p>
-			<form method="post" action="vue/page.php?article=intro"   >
+			<form  action="index.php"  method="post" >
 					<p>
 						<label>Votre identifiant :</label>
 						<input type="text" name="id"   >
