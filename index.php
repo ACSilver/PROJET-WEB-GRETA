@@ -26,13 +26,25 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mon site</title>
+<title>Connexion</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
-<body>
-	<div class="corps">
+
+<header>
+
+<?php include("Vue/header.php"); ?>
+
+</header>
+
+
+<body class="centrer fond " > 
+
+
+
+	<div class="corps" style="margin-top: 5%;" ;>
 		<p>
-		<div class="contenu">
+		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
 			<p>
 			<form  action="index.php"  method="post" >
@@ -52,5 +64,10 @@ else
 		</div>
 		</p>
 	</div>
+	
 </body>
+<footer class="">
+<?php include("Vue/footer.php"); ?>
+</footer>
 </html>
+
