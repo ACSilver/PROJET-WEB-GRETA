@@ -221,3 +221,19 @@
   background-color: #3B8EBD;
   color:white;
 }
+
+.fonctions {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  width: 60%;
+}
+
+.signature {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:left;
+  width: 60%;
+}
