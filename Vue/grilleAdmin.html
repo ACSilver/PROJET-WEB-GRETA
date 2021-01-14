@@ -9,6 +9,7 @@
     <script src="../js/jquery-1.9.0.min.js"></script>
     <script>
         $(document).ready(function(){ //Quand la page sera chargée entièrement
+            count = 1;
             $(".add-libelle").click(function(){
                 var name = $("#name").val();
                 var markup = '<tr><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
@@ -20,8 +21,9 @@
                 $(".grille").append(markup1);
             });
             $(".add-skill").click(function(){
+                count++;
                 var name = $("#name").val();
-                var markup2 = '<tr><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence1" /></td><td class="border1"><input type="radio" name="competence1" /></td><td class="border1"><input type="radio" name="competence1" /></td><td class="border1"><input type="radio" name="competence1" /></td></tr>';
+                var markup2 = '<tr><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td></tr>';
                 $(".grille").append(markup2);
             });
             $(".delete-row").click(function(){
@@ -38,7 +40,6 @@
                         $(this).parents("tr").children('td[name="edit-item"]').html(name); //je n'arrive pas avec .siblings()
                     }
                 });
-              //TODO : edit le name de chaque ligne ajoutée car les inputs radios sont tous liés
             });
         }); 
         
