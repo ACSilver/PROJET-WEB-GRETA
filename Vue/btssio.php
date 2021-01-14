@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Accueil Admin</title>
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-<script src="js/bootstrap.js"> </script>
+	<title>Accueil Admin</title>
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script src="js/bootstrap.js"> </script>
 </head>
 
 <header>
 
-<?php include("header.php"); ?>
+	<?php include("header.php"); ?>
 
 </header>
 
 
-<body class="centrer fond " > 
+<body class="centrer fond ">
 
 
 
-	<div class="corps centrer" style="margin-top: 5%;"  ;>
+	<div class="corps centrer" style="margin-top: 5%;" ;>
 
-	    <p class=" centrer">Page choix des stagiaires </p>
+		<p class=" centrer">Page choix des stagiaires </p>
 
-      
-      
+
+
 
 
 
 	</div>
-	
+
 </body>
 <footer class="">
-<?php include("footer.php"); ?>
+	<?php include("footer.php"); ?>
 </footer>
-</html>
 
+</html>
