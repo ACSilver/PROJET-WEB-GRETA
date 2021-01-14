@@ -42,7 +42,7 @@ else
 
 
 
-	<div class="corps" style="margin-top: 5%;" ;>
+	<div class="corps" style="margin-top: 5%; " ;>
 		<p>
 		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
@@ -57,17 +57,18 @@ else
 						<input type="password" name="mot_de_passe"  >
 					</p>
 					<p>
-						<input type="submit" value="Valider">
+						<input type="submit" value="Valider"> <a href="Vue/admin.php">page</a>
 					</p>
+					
 			</form>
 			</p>
 		</div>
 		</p>
 	</div>
-	
+	<?php include("Vue/footer.php"); ?>
 </body>
 <footer class="">
-<?php include("Vue/footer.php"); ?>
+
 </footer>
 </html>
 

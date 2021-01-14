@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="../css/style.css" />
 </head>
-  <footer class="site-footer fixed-bottom ">
+  <footer class="site-footer  " >
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -12,13 +12,7 @@
             <p class="text-justify">Application Web qui permet de remplir l'attestation de compétence de manière simple. </p>
           </div>
 
-          <div class="col-xs-6 col-md-3">
-         
-            
-          </div>
 
-          <div class="col-xs-6 col-md-3">
-            
           </div>
         </div>
         <hr>
@@ -30,9 +24,7 @@
             </p>
           </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
-         
-          </div>
+
         </div>
       </div>
 </footer>
