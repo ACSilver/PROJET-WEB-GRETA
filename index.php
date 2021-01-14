@@ -54,7 +54,7 @@ else
 					</p>
 					<p>
 						<label>Mot de passe :</label>
-						<input type="password" name="mot_de_passe"  >
+						<input type="password" name="mdp"  >
 					</p>
 					<p>
 						<input type="submit" value="Valider">
