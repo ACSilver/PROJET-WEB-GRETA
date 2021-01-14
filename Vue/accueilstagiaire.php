@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Accueil</title>
+  <title>Accueil Stagiaire</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/style.css" type="text/css" />
   <script src="js/bootstrap.js"> </script>
@@ -10,7 +10,7 @@
 
 <header>
 
-  <?php include("header.php"); ?>
+  <?php include("headerstagiaire.php"); ?>
 
 </header>
 

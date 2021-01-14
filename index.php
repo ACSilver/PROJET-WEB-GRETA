@@ -81,19 +81,19 @@ else {
 		<div class="contenu centrer">
 			<h3>Page d'introduction</h3>
 			<p>
-			<form action="index.php" method="post">
-				<p>
-					<label>Votre identifiant :</label>
-					<input type="text" name="id">
-				</p>
-				<p>
-					<label>Mot de passe :</label>
-					<input type="password" name="mdp">
-				</p>
-				<p>
-					<input type="submit" value="Valider"> <a href="Vue/admin.php">page</a>
-				</p>
-
+			<form  action="index.php"  method="post" >
+					<p>
+						<label>Votre identifiant :</label>
+						<input type="text" name="id"   >
+					</p>
+					<p>
+						<label>Mot de passe :</label>
+						<input type="password" name="mdp"  >
+					</p>
+					<p>
+						<input type="submit" value="Valider"> <a href="Vue/accueiladmin.php">admin</a> <a href="Vue/accueilformateur.php">formateur</a> <a href="Vue/accueilstagiaire.php">stagiaire</a>
+					</p>
+					
 			</form>
 			</p>
 		</div>
