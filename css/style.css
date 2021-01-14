@@ -151,7 +151,7 @@
     }
   }
 
-.casesHeaderDroites,.casePremiereLigne {
+.border1 {
     border: 1px solid black;
 }
 .header {
@@ -192,9 +192,9 @@
     text-align: center;
     width: 60%;
     margin-left: 20%;
-    margin-right: auto ;
     margin-top: 2%;
 }
+
 
 .reference1 {
   color :#3fa326;
@@ -207,7 +207,7 @@
 }
 
 .competence, .reference1{
-  text-align: right;
+  text-align: center;
 }
 
 .colonne1 {
@@ -236,4 +236,10 @@
   margin-right: auto;
   text-align:left;
   width: 60%;
+}
+
+.libelle {
+  width:60%;
+  background-color: #66EE38;
+  font-weight: bold;
 }
