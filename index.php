@@ -1,24 +1,63 @@
 <?php  
 
+//je commence la session 
 session_start();
 
-// si il n'y a pas de id ou mdp on arrete
+
+// Je vérifie si l'utilisateur a tapé son identifiant et son mot de passe:
+
+
+//l'id est vide par défaut , donc par défaut un message apparaît qui dit que l'id et mdp sont requis
+
 if(empty($_POST["id"]) || empty($_POST["mdp"]))
 	{
 		$message = 'All fields are required';
 		echo $message ;
-		session_destroy();
 	}
+//si l'identifiant et le mdp ne sont pas vides
 else
 {
+	//echo "there is a id and mdp" ;
+
+	//nous sauvegardons les paramètres saisis par l'utilisateur sous $ id et $ mdp
 	$id=$_POST['id'];
 	$mdp=$_POST['mdp'];
 	$_SESSION['id'] = $id;
 	$_SESSION['mdp'] = $mdp;
-	// appeler une fonction pour vérifier si l'identifiant existe
-	include('Controleur/user/checkid.php');
-	mdpcheck($id);
 
+
+
+	// nous incluons une page php, dans laquelle il y a une fonction utilisée pour valider l'id et msp
+	include('Controleur/user/checkid.php');
+
+	//nous appelons la fonction check_id qui est dans la page php que nous incluons précédemment, nous y insérons 2 paramètres ($ id, $ mdp)
+	checkid($id,$mdp);
+
+	//cette fonction nous renvoie une valeur appelée ( $ _SESSION ['value'] ) qui peut être égale à true ou false
+
+
+	//nous sauvegardons cette fonction en l'appelant $ valide
+	$valide = $_SESSION['valide'];
+	//echo $valide;
+
+
+
+
+	//nous vérifions si cette valeur est vraie ou fausse
+
+
+	//si c'est vrai
+	if ($valide == true) {
+		echo ("its working");//TO DO
+	}
+	//si non
+	else{
+		echo ("its not working");//TO DO
+
+	}
+
+	//pour finir on arrête la session	
+	session_destroy();
 
 }
 ?>
