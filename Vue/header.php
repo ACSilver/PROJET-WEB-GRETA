@@ -22,20 +22,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">GRETA</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Formations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Formateurs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Stagiaires</a>
-          </li>
+
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Recherche</button>
-        </form>
+
       </div>
     </div>
   </nav>
