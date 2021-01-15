@@ -13,23 +13,21 @@
     <script src="../js/jquery-1.9.0.min.js"></script>
     <script>
         $(document).ready(function(){ //Quand la page sera chargée entièrement
-            var idLibelle = 1;
-            var idreference = 1;
-            var idcompetence = 1;
             $(".add-libelle").click(function(){
                 var name = $("#name").val();
-                var markup = '<tr id="libelle'+count+'"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
+                var markup = '<tr id="libelle"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
                 $(".grille").append(markup);
+                // $idLibelle+=1 => Recuperation de l'ID du dernier tuple de la table libelle pour ne pas créer de doublons car on genre les ID
             });
             $(".add-ref").click(function(){
                 var name = $("#name").val();
-                var markup1 = '<tr id="reference'+count+'"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
+                var markup1 = '<tr id="reference"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
                 $(".grille").append(markup1);
             });
             $(".add-skill").click(function(){
                 count++;
                 var name = $("#name").val();
-                var markup2 = '<tr id="competence'+count+'"><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td></tr>';
+                var markup2 = '<tr id="competence"><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td></tr>';
                 $(".grille").append(markup2);
             });
             $(".delete-row").click(function(){
@@ -53,7 +51,7 @@
 </head>
 
 <body>
-    <h1 class="attestationTitre">Attestation de Compétences<?= $idLibelle?></h1>
+    <h1 class="attestationTitre">Attestation de Compétences</h1>
     <h2 class="formationTitre">//IntituléFormation</h1> <!-- value -> variable-->
         <p class="descriptionAttestation">Cette attestation vise à expliciter, formaliser et valoriser les compétences
             développées à l'occasion d'un parcours de formation.</p>
