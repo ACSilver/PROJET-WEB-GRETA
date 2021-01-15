@@ -74,7 +74,7 @@ else {
 
 	<?php include("Vue/header.php"); ?>
 
-	<div style="margin-top: 5%; " ;>
+	<div class="contenu" style="margin-top: 5%; " ;>
 		<p>
 		<div>
 			<h3>Page d'introduction</h3>
@@ -93,13 +93,14 @@ else {
 				</p>
 
 			</form>
+			
 			</p>
 		</div>
 
 
 		</p>
 	</div>
-	<footer> <?php include("Vue/footer.php"); ?> </footer>
+	<div > <?php include("Vue/footer.php"); ?> </div>
 </body>
 
 </html>

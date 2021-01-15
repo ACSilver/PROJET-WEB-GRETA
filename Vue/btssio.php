@@ -19,7 +19,7 @@
 
 
 
-	<div class="corps centrer" style="margin-top: 5%;" ;>
+	<div class="contenu centrer" style="margin-top: 5%;" ;>
 
 		<p class=" centrer">Page choix des stagiaires </p>
 

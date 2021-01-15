@@ -1,8 +1,8 @@
 <?php include("header.php"); ?>
 
-<body class="centrer fond ">
+<body class="centrer  ">
 
-    <div class="corps centrer">
+    <div class="contenu ">
 
         <p class=" centrer">Bienvenue, sur la page d'accueil! <br /> Merci d'utiliser notre service de technologie 2.0 ! </p>
 

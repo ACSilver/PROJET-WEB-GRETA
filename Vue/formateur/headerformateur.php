@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Header Formateur</title>
-    <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <script src="../../js/bootstrap.js"> </script>
-</head>
-
-<body class="truc">
-    <!-- Header pour le formateur  -->
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="accueilformateur.php">Accueil</a>
