@@ -13,7 +13,6 @@
     background-color:#26272b;
     padding:45px 0 20px;
     font-size:15px;
-    line-height:24px;
     color:#737373 !important;
   }
 
@@ -155,7 +154,8 @@
 .border1,.gen-input {
     border: 1px solid black;
 }
-.header {
+
+.grid-header {
     text-align: center;
     width: 60%;
     margin-left: auto;
@@ -250,3 +250,4 @@
   padding-bottom: 20px;
   background-color: grey;
 }
+
