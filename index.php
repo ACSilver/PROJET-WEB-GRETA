@@ -67,6 +67,7 @@ else {
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<link rel="stylesheet" href="css/footer.css" type="text/css" />
+	<script src="../../js/bootstrap.js"> </script>
 </head>
 
 <body class="centrer " ; style="height:auto; ">
