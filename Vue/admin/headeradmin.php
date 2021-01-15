@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Accueil Admin</title>
+  <title>Header Admin</title>
   <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <script src="../../js/bootstrap.js"> </script>
