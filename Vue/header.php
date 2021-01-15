@@ -35,7 +35,6 @@
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Recherche</button>
-          <button style="margin-left: 10%;" class="btn btn-danger" type="submit" >Déconnexion  </button>
         </form>
       </div>
     </div>
