@@ -154,6 +154,6 @@
                         </div>
                     </td>
                 </tr>
-        </tbody>
+            </tbody>
     </div>
-<?php include("footer.php"); ?>
+    <?php include("footer.php"); ?>

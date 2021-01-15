@@ -93,14 +93,14 @@ else {
 				</p>
 
 			</form>
-			
+
 			</p>
 		</div>
 
 
 		</p>
 	</div>
-	<div > <?php include("Vue/footer.php"); ?> </div>
+	<div> <?php include("Vue/footer.php"); ?> </div>
 </body>
 
 </html>
