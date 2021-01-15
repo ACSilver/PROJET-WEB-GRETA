@@ -1,7 +1,7 @@
 <?php
 
 //Parametres :
-require_once("Modèle/db_param.php");
+require_once("db_param.php");
 
 //Classe principale de l'objet de connexion PDO
 class db_connector {

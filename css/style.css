@@ -154,7 +154,8 @@
 .border1,.gen-input {
     border: 1px solid black;
 }
-.header {
+
+.grid-header {
     text-align: center;
     width: 60%;
     margin-left: auto;
