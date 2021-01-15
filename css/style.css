@@ -251,3 +251,7 @@
   background-color: grey;
 }
 
+.grid-user-infos {
+  text-align: right;
+  padding-right: 2%;
+}
