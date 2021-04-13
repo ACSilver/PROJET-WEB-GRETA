@@ -15,20 +15,25 @@
         $(document).ready(function(){ //Quand la page sera chargée entièrement
             $(".add-libelle").click(function(){
                 var name = $("#name").val();
-                var markup = '<tr id="libelle"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
-                $(".grille").append(markup);
+                if (name!="") {
+                    var markup = '<tr><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
+                    $(".grille").append(markup);
+                }
                 // $idLibelle+=1 => Recuperation de l'ID du dernier tuple de la table libelle pour ne pas créer de doublons car on genre les ID
             });
             $(".add-ref").click(function(){
                 var name = $("#name").val();
-                var markup1 = '<tr id="reference"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
-                $(".grille").append(markup1);
+                if (name!="") {
+                    var markup1 = '<tr><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
+                    $(".grille").append(markup1);
+                }
             });
             $(".add-skill").click(function(){
-                count++;
                 var name = $("#name").val();
-                var markup2 = '<tr id="competence"><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td></tr>';
-                $(".grille").append(markup2);
+                if (name!="") {
+                    var markup2 = '<tr><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td></tr>';
+                    $(".grille").append(markup2);
+                }
             });
             $(".delete-row").click(function(){
                 $(".grille").find('input[name="record"]').each(function(){ //On cherche dans la grille tout les descendants avec name=record et pour chacun, si il est coché, on supprime la ligne parent
@@ -41,9 +46,15 @@
                 var name = $("#name").val();
                 $(".grille").find('input[name="record"]').each(function(){
                     if($(this).is(":checked")){
-                        $(this).parents("tr").children('td[name="edit-item"]').html(name); //je n'arrive pas avec .siblings()
+                        if (name!="") {
+                            $(this).parents("tr").children('td[name="edit-item"]').html(name); //je n'arrive pas avec .siblings()
+                        }
                     }
                 });
+            });
+            $(".save-grid").click(function(){
+
+                
             });
         }); 
         
@@ -51,6 +62,12 @@
 </head>
 
 <body>
+    <?php 
+        $val="terrrst";
+        addFormation($val,10);
+        echo(getIdLibelle()); 
+    ?>
+
     <h1 class="attestationTitre">Attestation de Compétences</h1>
     <h2 class="formationTitre">//IntituléFormation</h1> <!-- value -> variable-->
         <p class="descriptionAttestation">Cette attestation vise à expliciter, formaliser et valoriser les compétences
@@ -89,19 +106,19 @@
             <input type="button" class="delete-row" value="Supprimer">
             <br><br>
             <input type="text" class="gen-input" placeholder="Nom de la grille">
-            <input type="button" class="" value="Sauvegarder grille">
+            <input type="button" class="save-grid" value="Sauvegarder grille">
         </div>
 
         <div>
             <table class="grille">
 
                 <!-- Code si on veut ajouter un libellé-->
-                <tr id="libelle">
-                    <td class="border1 ">
+                <tr>
+                    <td class="border1">
                         <input type="checkbox" name="record">
                     </td>
                     <td class="border1 libelle" name="edit-item">
-                        //NomLibelle</td> <!-- value -> variable-->
+                        NomLibelle</td> <!-- value -> variable-->
                     <td class="border1 colonne1">Non acquis</td>
                     <td class="border1 colonne2">Partiellement acquis</td>
                     <td class="border1 colonne1">Acquis à un niveau suffisant</td>
@@ -109,11 +126,11 @@
                 </tr>
     
                 <!-- Code si on veut ajouter une ligne référence-->
-                <tr id="reference">
+                <tr>
                     <td class="border1 ">
                         <input type="checkbox" name="record">
                     </td>
-                    <td class="border1 reference1" name="edit-item" >//Référence</td>
+                    <td class="border1 reference1" name="edit-item" >Référence</td>
                     <td class="border1 reference"></td>
                     <td class="border1 reference"></td>
                     <td class="border1 reference"></td>
@@ -121,23 +138,23 @@
                 </tr>
     
                 <!-- Code si on veut ajouter une ligne compétence-->
-                <tr id="competence">
+                <tr>
                     <td class="border1">
                         <input type="checkbox" name="record">
                     </td>
-                    <td class="border1 competence" name="edit-item" >//Compétence</td>
+                    <td class="border1 competence" name="edit-item" >Compétence</td>
                     <td class="border1">
-                        <input type="radio" name="competence1" />
+                        <input type="radio" name="competence" />
                     </td>
                     <!-- Regrouper les boutons sous un même "name" pour en selectionner un seul du groupe-->
                     <td class="border1">
-                        <input type="radio" name="competence1" />
+                        <input type="radio" name="competence" />
                     </td>
                     <td class="border1">
-                        <input type="radio" name="competence1" />
+                        <input type="radio" name="competence" />
                     </td>
                     <td class="border1">
-                        <input type="radio" name="competence1" />
+                        <input type="radio" name="competence" />
                     </td>
                 </tr>
             </table>

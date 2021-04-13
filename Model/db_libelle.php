@@ -17,4 +17,18 @@
         }
         return $idLibelle;
     }
+
+    function addFormation($nom,$nbHeures) {
+        try {
+            $db = new db_connector(DB_DATABASE);
+            $connexion = $db->connexion();
+            $addFormation="INSERT INTO `formation`(`nom`, `nbHeures`) VALUES ('$nom',$nbHeures)";
+            $query = $connexion->prepare($addFormation);
+            $query->execute();
+        }
+        catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+    }
 ?> 

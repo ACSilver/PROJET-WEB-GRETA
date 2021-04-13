@@ -1,5 +1,5 @@
-test
 <?php
+
 //requete pour ajouter un stagiaire
 $AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, dateEntree, promo, IDformation, IDsecurité) VALUES($nom, $mail, $dateEntree, $promo, $IDformation, $IDsecurité)");
 //
@@ -7,7 +7,7 @@ $AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, dateEntree, promo, IDformat
 $AjoutFormateur=("INSERT INTO 'formateur'(nom, IDformation, IDsecurité) VALUES($nom, $IDformation, $IDsecurité)");
 //
 //requete pour ajouter une formation
-$AjoutFormation=("INSERT INTO 'formation(nom, nbHeures)' VALUES($nom, $nbHeures)");
+$AjoutFormation="INSERT INTO `formation`(`nom`, `nbHeures`) VALUES ('$nom',$nbHeures)";
 //
 //requete pour desactiver une formation
 $DesactiveFormation=("UPDATE formation SET actif=0 WHERE IDformation=$IDformation");

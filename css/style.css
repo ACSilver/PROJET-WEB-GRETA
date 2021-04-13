@@ -133,3 +133,7 @@ body {
     flex: 1 !important;
   
 }
+
+.border1{
+  border: black solid 1px ;
+}
