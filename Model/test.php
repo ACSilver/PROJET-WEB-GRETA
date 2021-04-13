@@ -112,5 +112,5 @@ $AfficherFormationEtPromo=("SELECT nom, promo
                             FROM formation, promo 
                             INNER JOIN lienpromo 
                             WHERE promo.IDpromo = lienpromo.IDpromo 
-                            AND formation.IDformation=1 
-                            AND lienpromo.IDformation=1");
+                            AND formation.IDformation=$IDformation 
+                            AND lienpromo.IDformation=$IDformation");
