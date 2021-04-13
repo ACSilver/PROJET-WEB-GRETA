@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><br><a href="btssio.php">BTS services informatiques aux organisations [SIO] - option : Solutions Logicielles et Applications Métiers (SLAM)</a></td>
+                        <td><br><a href="../btssio.php">BTS services informatiques aux organisations [SIO] - option : Solutions Logicielles et Applications Métiers (SLAM)</a></td>
                         <td>
                             <div class="form-group">
                                 <label for="sel1"></label>
