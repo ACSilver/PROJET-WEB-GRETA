@@ -92,3 +92,6 @@ $AfficherReference=("SELECT descRef FROM ref WHERE IDlibelle=$IDlibelle");
 //
 //requete pour afficher promotion
 $AfficherPromotion=("SELECT promo FROM promo");
+//
+//requete pour afficher une formation avec toutes les promos qui lui sont liés (les 2 $IDformation doivent etre identique)
+$AfficherFormationEtPromo=("SELECT nom FROM formation WHERE IDformation=$IDformation UNION SELECT promo FROM promo WHERE IDformation=$IDformation");
