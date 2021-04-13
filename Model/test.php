@@ -65,3 +65,15 @@ $req21=("UPDATE formation SET actif=1 WHERE IDformation=$IDformation");
 //
 //requete pour reactiver un formateur
 $req22=("UPDATE formateur SET actif=1 WHERE IDformateur=$IDformateur");
+//
+//requete pour afficher une liste de formateur
+$req23=("SELECT nom FROM formateur");
+//
+//requete pour afficher une liste de formation
+$req24=("SELECT nom FROM formation");
+//
+//requete pour afficher une liste de stagiaire
+$req25=("SELECT nom FROM stagiaire");
+//
+//requete pour recuperer login + mot de passe
+$req26=("SELECT identifiant FROM securite WHERE EXISTS(SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
