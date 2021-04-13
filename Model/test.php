@@ -1,10 +1,12 @@
 <?php
 
 //requete pour ajouter un stagiaire
-$AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, IDformation, IDsecurité) VALUES($nom, $mail, $IDformation, $IDsecurité)");
+$AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, IDformation, IDsecurité) 
+                    VALUES($nom, $mail, $IDformation, $IDsecurité)");
 //
 //requete pour ajouter un formateur
-$AjoutFormateur=("INSERT INTO 'formateur'(nom, IDformation, IDsecurité) VALUES($nom, $IDformation, $IDsecurité)");
+$AjoutFormateur=("INSERT INTO 'formateur'(nom, IDformation, IDsecurité) 
+                    VALUES($nom, $IDformation, $IDsecurité)");
 //
 //requete pour ajouter une formation
 $AjoutFormation="INSERT INTO `formation`(`nom`, `nbHeures`) VALUES ('$nom',$nbHeures)";
@@ -37,19 +39,24 @@ $ModifierFormation=("UPDATE formation SET nom=$newnom, nbHeures=$newnbHeures WHE
 $ModifierFormateur=("UPDATE formateur SET nom=$newnom WHERE IDformateur=$IDformateur");
 //
 //requete pour lier un formateur a une formation
-$LierFormateurFormation=("INSERT INTO 'lienformateur(IDformateur, IDformation)' VALUES($IDformateur, $IDformation)");
+$LierFormateurFormation=("INSERT INTO 'lienformateur(IDformateur, IDformation)' 
+                            VALUES($IDformateur, $IDformation)");
 //
 //requete pour lier un stagiaire et une formation (dateEntree et dateSortie peuvent etre nulle)
-$LierStagiaireFormation=("INSERT INTO 'lienstagiaire(IDstagiaire, IDformation, dateEntree, dateSortie)' VALUES($IDstagiaire, $IDformation, $dateEntree, $dateSortie)");
+$LierStagiaireFormation=("INSERT INTO 'lienstagiaire(IDstagiaire, IDformation, dateEntree, dateSortie)' 
+                            VALUES($IDstagiaire, $IDformation, $dateEntree, $dateSortie)");
 //
 //requete pour lier une promo a une formation
 $LierPromoFormation=("INSERT INTO 'lienpromo(IDpromo, IDformation)' VALUES($IDpromo, $IDformation)");
 //
 //requete pour modifier un stagiaire
-$ModifierStagiaire=("UPDATE stagiaire SET nom=$newnom, mail=$newmail, IDformation=$newIDformation, IDsecurité=$newIDsecurité WHERE IDstagiaire=$IDstagiaire");
+$ModifierStagiaire=("UPDATE stagiaire 
+                    SET nom=$newnom, mail=$newmail, IDformation=$newIDformation, IDsecurité=$newIDsecurité 
+                    WHERE IDstagiaire=$IDstagiaire");
 //
 //requete pour modifier la note d'un stagiaire
-$ModifierNoteStagiaire=("UPDATE notes SET valeur=$newvaleur WHERE IDcompetence=$IDcompetence AND IDstagiaire=$IDstagiaire");
+$ModifierNoteStagiaire=("UPDATE notes SET valeur=$newvaleur 
+                        WHERE IDcompetence=$IDcompetence AND IDstagiaire=$IDstagiaire");
 //
 //requete pour modifier un libellé
 $ModifierLibelle=("UPDATE libelle SET libellé=$newlibelle WHERE IDlibellé=$IDlibellé");
@@ -58,7 +65,8 @@ $ModifierLibelle=("UPDATE libelle SET libellé=$newlibelle WHERE IDlibellé=$IDl
 $ModifierReference=("UPDATE ref SET descRef=$newdescRef WHERE IDref=$IDref");
 //
 //requete pour modifier une competence
-$ModifierCompetence=("UPDATE competence SET descCompetence=$newdescCompetence WHERE IDcompetence=$IDcompetence");
+$ModifierCompetence=("UPDATE competence SET descCompetence=$newdescCompetence 
+                        WHERE IDcompetence=$IDcompetence");
 //
 //requete pour retirer le droit de modification a un stagiaire
 $RetirerDroitModification=("UPDATE stagiaire SET droitModification=0 WHERE IDstagiaire=$IDstagiaire");
@@ -82,16 +90,27 @@ $AfficherListeFormation=("SELECT nom FROM formation");
 $ListeStagiaire=("SELECT nom FROM stagiaire");
 //
 //requete pour recuperer login + mot de passe
-$RecupererLoginMDP=("SELECT identifiant FROM securite WHERE EXISTS(SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
+$RecupererLoginMDP=("SELECT identifiant FROM securite WHERE EXISTS(
+                    SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
 //
 //requete pour afficher une competence
-$AfficherGrille=("SELECT descCompetence FROM competence WHERE IDref=$IDref");
+$AfficherGrille=("SELECT descCompetence 
+                FROM competence 
+                WHERE IDref=$IDref");
 //
 //requete pour afficher une reference
-$AfficherReference=("SELECT descRef FROM ref WHERE IDlibelle=$IDlibelle");
+$AfficherReference=("SELECT descRef 
+                    FROM ref 
+                    WHERE IDlibelle=$IDlibelle");
 //
 //requete pour afficher promotion
-$AfficherPromotion=("SELECT promo FROM promo");
+$AfficherPromotion=("SELECT promo 
+                    FROM promo");
 //
 //requete pour afficher une formation avec toutes les promos qui lui sont liés (les 2 $IDformation doivent etre identique)
-$AfficherFormationEtPromo=("SELECT nom FROM formation WHERE IDformation=$IDformation UNION SELECT promo FROM promo INNER JOIN lienpromo WHERE promo.IDpromo = lienpromo.IDpromo AND IDformation=$IDformation");
+$AfficherFormationEtPromo=("SELECT nom, promo 
+                            FROM formation, promo 
+                            INNER JOIN lienpromo 
+                            WHERE promo.IDpromo = lienpromo.IDpromo 
+                            AND formation.IDformation=1 
+                            AND lienpromo.IDformation=1");
