@@ -91,4 +91,4 @@ $AfficherGrille=("SELECT descCompetence FROM competence WHERE IDref=$IDref");
 $AfficherReference=("SELECT descRef FROM ref WHERE IDlibelle=$IDlibelle");
 //
 //requete pour afficher promotion
-$AfficherPromotion=("SELECT promo FROM stagiaire");
+$AfficherPromotion=("SELECT promo FROM promo");
