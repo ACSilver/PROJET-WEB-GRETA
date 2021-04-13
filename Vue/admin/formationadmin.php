@@ -1,3 +1,44 @@
+<?php
+
+
+require("../../Model/connect.php");
+
+
+
+$db = new db_connector(DB_DATABASE);
+
+$connexion = $db->connexion();
+
+
+$AfficherListeFormation=("SELECT nom FROM formation");
+$AfficherPromotion=("SELECT promo FROM promo");
+// $AfficherFormationEtPromo=("SELECT nom 
+//                             FROM formation 
+//                             WHERE IDformation=$IDformation 
+//                             UNION SELECT promo 
+//                             FROM promo 
+//                             INNER JOIN lienpromo 
+//                             WHERE promo.IDpromo = lienpromo.IDpromo 
+//                             AND IDformation=$IDformation");
+
+$query = $connexion->prepare($AfficherListeFormation);
+$query2 = $connexion->prepare($AfficherPromotion);
+
+
+$query->execute();
+$query2->execute();
+
+$resultat = $query->fetchAll();
+$promos = $query2->fetchAll();
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +58,7 @@
 
 
 
-<body class="centrer  ">
+<body class="centrer  "> 
 
 
 
@@ -27,6 +68,14 @@
         </p>
 
         <div>
+
+
+        <table>
+
+        </table>
+
+
+
             <table class="table">
                 <thead>
                     <tr>
@@ -34,9 +83,40 @@
                         <th>Année de la promotion</th>
                     </tr>
                 </thead>
+
+                <input type="button" class="btn btn-success" value="Ajouter formation" >
+                <input type="button" class="btn btn-warning" value="Modifier formation" >
+                <input type="button" class="btn btn-danger" value="Désactiver formation" >
+
                 <tbody>
+
+                    <?php 
+                        foreach($resultat as $key => $value) {
+                            echo '<tr><td><br> '.$value['nom'].'</td>';
+                            
+                            echo '<td><br>
+                                <div class="form-group">
+                                <label for="sel1"></label>
+                                <select class="form-control" id="sel1">';
+                                foreach($promos as $combo => $valeur) {
+                                    echo '<option>'.$valeur['promo'].' </option>';
+
+
+                                }
+                                        
+                            echo '</select></div></td>';    
+                            echo '</tr>';
+
+                        }
+                            
+
+                    ?>
+
+
                     <tr>
                         <td><br><a href="../btssio.php">BTS services informatiques aux organisations [SIO] - option : Solutions Logicielles et Applications Métiers (SLAM)</a></td>
+                        
+                        
                         <td>
                             <div class="form-group">
                                 <label for="sel1"></label>
