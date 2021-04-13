@@ -31,4 +31,45 @@
             die();
         }
     }
+
+    $dbIdLibelle = "SELECT IDlibellé FROM libelle ORDER BY IDlibellé DESC LIMIT 1;";
+
+    function getIdFormation($nom) {
+        try {
+            $db = new db_connector(DB_DATABASE);
+            $connexion = $db->connexion();
+            $idFormation = "SELECT `IDformation` FROM `formation` WHERE `nom`='$nom';";
+            $query = $connexion->prepare($idFormation);
+            $query->execute();
+            $resultat = $query->fetch();
+            
+        }
+        catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+
+        return $resultat[0];
+    }
+
+    function addGridModelToFormation($idFormation) {
+        try {
+            $db = new db_connector(DB_DATABASE);
+            $connexion = $db->connexion();
+            $addGridModel="INSERT INTO `modelegrille`(`IDformation`) VALUES ($idFormation)";
+            $getLastId ="SELECT LAST_INSERT_ID()";
+            $query = $connexion->prepare($addGridModel);
+            $query1 = $connexion->prepare($getLastId);
+            $query->execute();
+            $query1->execute();
+            $resultat = $query1->fetch();
+
+        }
+        catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage();
+            die();
+        }
+        return $resultat[0]; // On retourne l'ID du modèle créé
+    }
+
 ?> 
