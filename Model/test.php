@@ -77,3 +77,12 @@ $ListeStagiaire=("SELECT nom FROM stagiaire");
 //
 //requete pour recuperer login + mot de passe
 $RecupererLoginMDP=("SELECT identifiant FROM securite WHERE EXISTS(SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
+//
+//requete pour afficher une competence
+$AfficherGrille=("SELECT descCompetence FROM competence WHERE IDref=$IDref");
+//
+//requete pour afficher une reference
+$AfficherReference=("SELECT descRef FROM ref WHERE IDlibelle=$IDlibelle");
+//
+//requete pour afficher promotion
+$AfficherPromotion=("SELECT promo FROM stagiaire");
