@@ -4,13 +4,25 @@
 
 class AdminUser {
 
-    public function __construct() {
-        
+    public function __construct(){
 
     }
+
     // lien de l'Accueil
-    public function Accueil() {
-        include ('Vue/admin/accueiladmin.php');
+    public function Accueil(){
+
+        if (isset($_SESSION['loggedin'])){
+            if (isset($_SESSION['usertype']) and $_SESSION['usertype'] == "0"){
+                include_once ('Vue/admin/accueiladmin.php');
+                //$this->Accueil();
+            }
+            else{
+                header("LOCATION: http://localhost");
+            }
+        }
+        else{
+            header("LOCATION: http://localhost");
+        }
     }
 
 
@@ -19,27 +31,28 @@ class AdminUser {
 
     public function Formateurs() {
 
-        require("Model/connect.php");
 
-        $db = new db_connector(DB_DATABASE);
+        // require("Model/connect.php");
 
-        $connexion = $db->connexion();
+        // $db = new db_connector(DB_DATABASE);
+
+        // $connexion = $db->connexion();
 
 
-        $AfficherListeFormateur=("SELECT nom FROM formateur");
+        // $AfficherListeFormateur=("SELECT nom FROM formateur");
 
-        $query = $connexion->prepare($AfficherListeFormateur);
+        // $query = $connexion->prepare($AfficherListeFormateur);
 
-        $query->execute();
+        // $query->execute();
 
-        $resultat = $query->fetchAll();
+        // $resultat = $query->fetchAll();
 
-        include ('Vue/admin/formateuradmin.php');
+        include_once ('Vue/admin/formateuradmin.php');
     }
 
 
     public function AjouterFormateur() {
-        include ('Vue/admin/creationformateur.php');
+        include_once ('Vue/admin/creationformateur.php');
     }
 
 

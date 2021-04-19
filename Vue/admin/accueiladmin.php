@@ -22,6 +22,8 @@
   </div>
 
 </body>
+
+
 <footer>
   <?php include("Vue/footer.php"); ?>
 </footer>

@@ -20,7 +20,7 @@
 <div>
 
   <div class='center contenue'>
-    <?php include($_SESSION['pagename'].".php"); ?>
+    <?php //include($_SESSION['pagename'].".php"); ?>
   </div>
 
 </body>

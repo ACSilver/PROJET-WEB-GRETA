@@ -19,22 +19,30 @@ load_class_dir('Controleur');
 
 $route = new Route();
 
+session_start();
 
-$route->add('/', 'login' );
 
 // tout les route de Admin
 
+
+
+
+
+$route->add('/info', function(){ 
+    $example = new info; 
+});
+
+
 $route->add('/admin', function(){ 
+
     $example = new AdminUser; 
     $example -> Accueil();
 });
 
-
-$route->add('/admin/creationFormateur', function(){ 
+$route->add('/admin/Formateurs/creationFormateur', function(){ 
     $example1 = new AdminUser; 
     $example1 -> AjouterFormateur();
 });
-
 
 $route->add('/admin/Formateurs', function(){ 
     $example1 = new AdminUser; 
@@ -57,19 +65,17 @@ $route->add('/stagiaire', function(){
 });
 
 
-
-
-
-
-
 // Tout les route de Auth
 
-$route->add('/deconnexion', function(){ 
+
+$route->add('/', 'login' );
+
+
+$route->add('deconnexion', function(){ 
     $example = new Auth();
     $example -> logout(); 
-    if ($_SESSION['loggedin'] == false) {
-        header("LOCATION: http://localhost");
-    }
+    session_destroy();
+    header("LOCATION: http://localhost");
 } );
 
 

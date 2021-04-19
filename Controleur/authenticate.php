@@ -11,19 +11,24 @@ class Auth {
     }
 
     public function ValidatedUser() {
-      
-      session_start();
 
       // If the user is not logged in redirect to the login page...
-      if (!isset($_SESSION['loggedin'])) {
+      if (isset($_SESSION['loggedin']) and  isset($_SESSION['usertype']))  {
 
-         $_SESSION['loggedin'] = FALSE;
-         return $_SESSION['loggedin'];
+         if ($_SESSION['usertype'] ==  '0') {
+            header("LOCATION: http://localhost/admin");
+         }
+        elseif ($_SESSION['usertype'] ==  '1') {
+            header("LOCATION: http://localhost/formateur");
+         }
+        elseif ($_SESSION['usertype'] ==  '2') {
+            header("LOCATION: http://localhost/stagiaire");
+         }
          exit;
+
       }
 
       require("Model/connect.php");
-
 
 
       if (!isset($_POST['username'], $_POST['password']) ) {
@@ -42,37 +47,24 @@ class Auth {
       $LoginName =  $_POST['username'];
 
 
-      if ($stmt = $connexion->prepare("SELECT  IDsecurite,mdp,statut FROM securite where identifiant = '$LoginName'")) {
+      if ($stmt = $connexion->prepare("SELECT  IDsecurite,mdp,statut,grainDeSel FROM securite where identifiant = '$LoginName'")) {
          // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
          $stmt->execute();
          // Store the result so we can check if the account exists in the database.
 
 
          if ($stmt->rowCount() > 0) {
+            // Account exists, now we verify the password.
             $data = $stmt->fetchAll();
             print_r($data); 
-            // Account exists, now we verify the password.
-            echo '<br>  avant test de password';
-            echo "<br>" . $data['0']['mdp'];
             $password = $data['0']['mdp'];
-            echo "<br>" .$password;
+            $mdp = $_POST['password'];
+            $grainDeSel= $data['0']['grainDeSel'];;
 
+            //example de hachage de cours
+            $hash_de_test = md5($mdp.$grainDeSel);
 
-            // Note: remember to use password_hash in your registration file to store the hashed passwords.
-            // if (password_verify($_POST['password'], $password)) {
-            //    // Verification success! User has logged-in!
-            //    // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-            //    echo '<br> test3';
-            //    session_regenerate_id();
-            //    $_SESSION['usertype'] = $stmt ['statut'];
-            //    echo $_SESSION['usertype'];
-            //    $_SESSION['loggedin'] = TRUE;
-            //    $_SESSION['name'] = $_POST['username'];
-            //    $_SESSION['id'] = $id;
-            // }
-
-
-            if ($_POST['password'] == $password) {
+            if ($hash_de_test  === $password) {
                // Verification success! User has logged-in!
                // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
                $_SESSION['usertype'] = $data['0']['statut'];
@@ -95,14 +87,12 @@ class Auth {
       return $_SESSION['loggedin'];
    }
 
-
     public function logout(){
-        $_SESSION['loggedin'] = false;
-        return $_SESSION['loggedin'];
-        exit;
+         unset($_SESSION['loggedin']);
+         unset($_SESSION['usertype']);
+         unset($_SESSION['errormessage']);
+         return $_SESSION['loggedin'];
     }
-
-
 
 }
 

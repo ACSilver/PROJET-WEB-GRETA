@@ -1,25 +1,25 @@
 <?php
 
 
-// require("Model/connect.php");
+require("Model/connect.php");
 
 
 
-// $db = new db_connector(DB_DATABASE);
+$db = new db_connector(DB_DATABASE);
 
-// $connexion = $db->connexion();
-
-
-// $AfficherListeFormateur=("SELECT nom FROM formateur");
+$connexion = $db->connexion();
 
 
+$AfficherListeFormateur=("SELECT nom FROM formateur");
 
-// $query = $connexion->prepare($AfficherListeFormateur);
 
 
-// $query->execute();
+$query = $connexion->prepare($AfficherListeFormateur);
 
-// $resultat = $query->fetchAll();
+
+$query->execute();
+
+$resultat = $query->fetchAll();
 
 
 ?>
@@ -64,7 +64,7 @@
 
     <input type="button" class="btn btn-success" value="Ajouter formateur">
 
-    <a href="creationFormateur" class="btn btn-success">Ajouter Formateur v2 </a>
+    <a href="Formateurs/creationFormateur" class="btn btn-success">Ajouter Formateur v2 </a>
 
     <input type="button" class="btn btn-warning" value="Modifier formateur">
     <input type="button" class="btn btn-danger" value="Désactiver formateur">

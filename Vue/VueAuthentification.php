@@ -40,9 +40,23 @@
 					<input type="submit" value="Valider"> <a href="Vue/admin/accueiladmin.php">admin</a> <a href="Vue/formateur/accueilformateur.php">formateur</a> <a href="Vue/stagiaire/accueilstagiaire.php">stagiaire</a>
 				</p>
 
+
+
 			</form>
 
+			
+
 			</p>
+
+			<h1>			
+				<?php 
+					if (isset($_SESSION['errormessage'])) {
+						echo  $_SESSION['errormessage'] ;
+					}
+				?>
+			</h1>
+
+
 		</div>
 
 
