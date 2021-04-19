@@ -52,7 +52,7 @@ $promos = $query2->fetchAll();
 
 <header>
 
-    <?php include("headeradmin.php"); ?>
+    <?php include("headerformateur.php"); ?>
 
 </header>
 
@@ -65,50 +65,32 @@ $promos = $query2->fetchAll();
 
     <div class="contenu centrer " style="margin-top: 5%;" >
 
-        <p class=" centrer">Bienvenue, sur la page des formations! <br /> Merci d'utiliser notre service de technologie 2.0 !
+        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !
         </p>
 
         <div>
 
+        <input placeholder="Nom"  type="text"> 
+        <input placeholder="Prénom"  type="text"> 
+        <input placeholder="Age"  type="text"> 
+        <input placeholder="Mot de passe"  type="text"> 
+        <input placeholder="Confirmer mot de passe"  type="text"> 
+        <div class="col-sm-3">
+      <select class="form-control">
+        <option value="+47">BTS SIO </option>
+        <option value="+46">BTS Compta </option>
+        <option value="+45">Bts Waseem </option>
+        </div>
+        </select>
+        <div class="col-sm-3">
 
-        <table>
-
-        </table>
-
-
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Formations</th>
-                        
-                    </tr>
-                </thead>
-
-                <input type="button" class="btn btn-success" value="Ajouter formation" >
-                <!-- <input type="button" class="btn btn-warning" value="Modifier formation" > -->
-                <!-- <input type="button" class="btn btn-danger" value="Désactiver formation" > -->
-
-                <tbody>
-
-                    <?php 
-                        foreach($resultat as $key => $value) {
-                            echo '<tr><td><br> <a href="promoadmin.php" >'.$value['nom'].'</a></td>';
-                            
-                                
-                            echo '</tr>';
-
-                        }
-                            
-
-                    ?>
-
-
-                    
-                </tbody>
-
-
-            </table>
+      <select class="form-control">
+        <option value="+47">2020-2021)</option>
+        <option value="+46">S2019-2020</option>
+        <option value="+45">2018-2019</option>
+      </select>
+      </div>
+        <p></p>
 
 
         </div>

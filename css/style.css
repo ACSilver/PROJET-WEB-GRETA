@@ -137,3 +137,7 @@ body {
 .border1{
   border: black solid 1px ;
 }
+
+.cacher{
+  display: none !important;
+}

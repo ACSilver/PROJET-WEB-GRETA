@@ -65,7 +65,7 @@ $promos = $query2->fetchAll();
 
     <div class="contenu centrer " style="margin-top: 5%;" >
 
-        <p class=" centrer">Bienvenue, sur la page des formations! <br /> Merci d'utiliser notre service de technologie 2.0 !
+        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !
         </p>
 
         <div>
@@ -80,20 +80,20 @@ $promos = $query2->fetchAll();
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Formations</th>
+                        <th>Promotions <php? > $formation</php></th>
                         
                     </tr>
                 </thead>
 
-                <input type="button" class="btn btn-success" value="Ajouter formation" >
-                <!-- <input type="button" class="btn btn-warning" value="Modifier formation" > -->
-                <!-- <input type="button" class="btn btn-danger" value="Désactiver formation" > -->
+                <!-- <input type="button" class="btn btn-success" value="Ajouter Promotion" > -->
+                <input type="button" class="btn btn-warning" value="Modifier formation" >
+                <input type="button" class="btn btn-danger" value="Désactiver formation" >
 
                 <tbody>
 
                     <?php 
-                        foreach($resultat as $key => $value) {
-                            echo '<tr><td><br> <a href="promoadmin.php" >'.$value['nom'].'</a></td>';
+                        foreach($promos as $key => $value) {
+                            echo '<tr><td><br> <a href="" >'.$value['promo'].'</a></td>';
                             
                                 
                             echo '</tr>';

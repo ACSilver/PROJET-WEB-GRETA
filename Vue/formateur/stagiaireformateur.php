@@ -23,6 +23,7 @@
 
     <p class=" centrer">Bienvenue, sur la page des stagiaires! <br /> Merci d'utiliser notre service de technologie 2.0 !
     </p>
+    <p><a href="creationstagiaire.php">Nouveau stagiaire</a></p>
   </div>
 
 </body>
