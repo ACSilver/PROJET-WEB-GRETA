@@ -1,5 +1,18 @@
 <?php 
     require('../Model/db_libelle.php');
+
+    function saveGrid(){
+        $idFormation = getIdFormation("test"); 
+        // Récupérer l'ID de la formation en question ( a modifier plus tard)
+        $idGridModel = addGridModelToFormation($idFormation); 
+        //On assosie le nouveau modele de grille à la formation et on récupère l'ID du modele de grille généré
+        
+        
+    }
+
+    if (isset($_GET['saved'])) {
+      saveGrid();      
+    }
 ?>
 
 <!doctype html>
@@ -12,26 +25,40 @@
     <script src="../js/script.js"></script>
     <script src="../js/jquery-1.9.0.min.js"></script>
     <script>
+        var count = 0;
         $(document).ready(function(){ //Quand la page sera chargée entièrement
             $(".add-libelle").click(function(){
-                var name = $("#name").val();
-                if (name!="") {
-                    var markup = '<tr><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
-                    $(".grille").append(markup);
+                var x = document.getElementById("grille").lastChild.children;
+                if (x.length>0) {
+                    var lastChildClass= x[x.length-1].className;
+                    switch (lastChildClass) {
+                        case '':
+                        break;
+                        case '':
+                        break;
+                        case '':
+                        break;
+                    }
+                } else {
+                    var name = $("#name").val();
+                    if (name!="") {
+                        var markup = '<tr class="gridLibelle"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 libelle" name="edit-item">'+name+'</td><td class="border1 colonne1">Non acquis</td><td class="border1 colonne2">Partiellement acquis</td><td class="border1 colonne1">Acquis à un niveau suffisant</td><td class="border1 colonne1">Dépassé</td></tr>';
+                        $(".grille").append(markup);
+                    }
                 }
-                // $idLibelle+=1 => Recuperation de l'ID du dernier tuple de la table libelle pour ne pas créer de doublons car on genre les ID
             });
             $(".add-ref").click(function(){
                 var name = $("#name").val();
                 if (name!="") {
-                    var markup1 = '<tr><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
+                    var markup1 = '<tr class="gridRef"><td class="border1 "><input type="checkbox" name="record"></td><td class="border1 reference1" name="edit-item">'+name+'</td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td><td class="border1 reference"></td></tr>';
                     $(".grille").append(markup1);
                 }
             });
             $(".add-skill").click(function(){
                 var name = $("#name").val();
                 if (name!="") {
-                    var markup2 = '<tr><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td><td class="border1"><input type="radio" name="competence" /></td></tr>';
+                    count++; 
+                    var markup2 = '<tr class="gridComp"><td class="border1"><input type="checkbox" name="record"></td><td class="border1 competence" name="edit-item">'+name+'</td><td class="border1"><input type="radio" name="competence'+count+'"" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td><td class="border1"><input type="radio" name="competence'+count+'" /></td></tr>';
                     $(".grille").append(markup2);
                 }
             });
@@ -53,8 +80,12 @@
                 });
             });
             $(".save-grid").click(function(){
-
-                
+                // var numLibelle = $('.gridLibelle').length
+                // console.log(numLibelle);
+                // var x = document.getElementById("grille").lastChild.children;
+                // if (x.length>0) {
+                //     var lastChildClass= x[x.length-1].className;
+                // }
             });
         }); 
         
@@ -62,12 +93,7 @@
 </head>
 
 <body>
-    <?php 
-        $val="terrrst";
-        addFormation($val,10);
-        echo(getIdLibelle()); 
-    ?>
-
+    
     <h1 class="attestationTitre">Attestation de Compétences</h1>
     <h2 class="formationTitre">//IntituléFormation</h1> <!-- value -> variable-->
         <p class="descriptionAttestation">Cette attestation vise à expliciter, formaliser et valoriser les compétences
@@ -106,14 +132,15 @@
             <input type="button" class="delete-row" value="Supprimer">
             <br><br>
             <input type="text" class="gen-input" placeholder="Nom de la grille">
+            <!-- <a href="http://localhost/PROJET-WEB-GRETA/Vue/grilleAdmin.php?saved=true"><input type="button" value="Sauvegarder grille"></a> -->
             <input type="button" class="save-grid" value="Sauvegarder grille">
+
         </div>
 
         <div>
-            <table class="grille">
-
+            <table id="grille" class="grille">
                 <!-- Code si on veut ajouter un libellé-->
-                <tr>
+                <tr class="gridLibelle">
                     <td class="border1">
                         <input type="checkbox" name="record">
                     </td>
@@ -126,7 +153,7 @@
                 </tr>
     
                 <!-- Code si on veut ajouter une ligne référence-->
-                <tr>
+                <tr class="gridRef">
                     <td class="border1 ">
                         <input type="checkbox" name="record">
                     </td>
@@ -138,7 +165,7 @@
                 </tr>
     
                 <!-- Code si on veut ajouter une ligne compétence-->
-                <tr>
+                <tr class="gridComp">
                     <td class="border1">
                         <input type="checkbox" name="record">
                     </td>
