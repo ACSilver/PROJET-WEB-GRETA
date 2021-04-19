@@ -81,6 +81,7 @@ $promos = $query2->fetchAll();
         <option value="+46">BTS Compta </option>
         <option value="+45">Bts Waseem </option>
         </div>
+
         </select>
         <div class="col-sm-3">
 
@@ -90,8 +91,8 @@ $promos = $query2->fetchAll();
         <option value="+45">2018-2019</option>
       </select>
       </div>
-        <p></p>
-
+        
+        <button>Créer nouveau stagiaire</button>
 
         </div>
 
