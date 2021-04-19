@@ -94,6 +94,16 @@ class Auth {
       }
       return $_SESSION['loggedin'];
    }
+
+
+    public function logout(){
+        $_SESSION['loggedin'] = false;
+        return $_SESSION['loggedin'];
+        exit;
+    }
+
+
+
 }
 
 

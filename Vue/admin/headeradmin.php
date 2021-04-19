@@ -14,7 +14,7 @@
           <a class="nav-link" href="formationadmin.php">Formations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/creationFormateur">Formateurs</a>
+          <a class="nav-link" href="/admin/Formateurs">Formateurs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="stagiaireadmin.php">Stagiaires</a>

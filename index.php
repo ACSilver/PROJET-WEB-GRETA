@@ -22,6 +22,7 @@ $route = new Route();
 
 $route->add('/', 'login' );
 
+// tout les route de Admin
 
 $route->add('/admin', function(){ 
     $example = new AdminUser; 
@@ -35,8 +36,36 @@ $route->add('/admin/creationFormateur', function(){
 });
 
 
+$route->add('/admin/Formateurs', function(){ 
+    $example1 = new AdminUser; 
+    $example1 -> Formateurs();
+});
+
+
+// tout les route de Formateurs
+
+$route->add('/formateur', function(){ 
+    $example = new FormateurUser; 
+    $example -> Accueil();
+});
+
+// tout les route de Stagiaires
+
+$route->add('/stagiaire', function(){ 
+    $example = new StagiaireUser; 
+    $example -> Accueil();
+});
+
+
+
+
+
+
+
+// Tout les route de Auth
+
 $route->add('/deconnexion', function(){ 
-    $example = new Logout();
+    $example = new Auth();
     $example -> logout(); 
     if ($_SESSION['loggedin'] == false) {
         header("LOCATION: http://localhost");
@@ -53,16 +82,19 @@ $route->add('/auth', function(){
             header("LOCATION: http://localhost/admin");
         }
         elseif ($_SESSION['usertype'] ==  '1') {
-            header("LOCATION: http://localhost/prof");
+            header("LOCATION: http://localhost/formateur");
         }
         elseif ($_SESSION['usertype'] ==  '2') {
-            header("LOCATION: http://localhost/stagaire");
+            header("LOCATION: http://localhost/stagiaire");
         }
     }
     else {
         header("LOCATION: http://localhost");
     }
 } );
+
+
+
 
 
 // $route->add('/test/hello', function(){ echo "routage suplémentaire"; } );

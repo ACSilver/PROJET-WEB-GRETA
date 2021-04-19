@@ -1,33 +1,31 @@
 <?php
 
 
-require("../../Model/connect.php");
+// require("Model/connect.php");
 
 
 
-$db = new db_connector(DB_DATABASE);
+// $db = new db_connector(DB_DATABASE);
 
-$connexion = $db->connexion();
-
-
-$AfficherListeFormateur=("SELECT nom FROM formateur");
+// $connexion = $db->connexion();
 
 
-
-$query = $connexion->prepare($AfficherListeFormateur);
-
-
-$query->execute();
-
-$resultat = $query->fetchAll();
+// $AfficherListeFormateur=("SELECT nom FROM formateur");
 
 
 
+// $query = $connexion->prepare($AfficherListeFormateur);
 
 
+// $query->execute();
+
+// $resultat = $query->fetchAll();
 
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -51,58 +49,62 @@ $resultat = $query->fetchAll();
 
   <div class="contenu centrer" style="margin-top: 5%;" ;>
 
-    <p class=" centrer">Bienvenue, sur la page des formateurs! <br /> Merci d'utiliser notre service de technologie 2.0 !
+    <p class=" centrer">Bienvenue, sur la page des formateurs! <br /> Merci d'utiliser notre service de technologie 2.0
+      !
     </p>
   </div>
 
   <table class="table">
-                <thead>
-                    <tr>
-                        <th>Formations</th>
-                        <th>Année de la promotion</th>
-                    </tr>
-                </thead>
+    <thead>
+      <tr>
+        <th>Formations</th>
+        <th>Année de la promotion</th>
+      </tr>
+    </thead>
 
-                <input type="button" class="btn btn-success" value="Ajouter formateur" >
-                <input type="button" class="btn btn-warning" value="Modifier formateur" >
-                <input type="button" class="btn btn-danger" value="Désactiver formateur" >
+    <input type="button" class="btn btn-success" value="Ajouter formateur">
 
-                <tbody>
+    <a href="creationFormateur" class="btn btn-success">Ajouter Formateur v2 </a>
 
-                    <?php 
-                        foreach($resultat as $key => $value) {
-                            echo '<tr><td><br> '.$value['nom'].'</td>';
+    <input type="button" class="btn btn-warning" value="Modifier formateur">
+    <input type="button" class="btn btn-danger" value="Désactiver formateur">
+
+    <tbody>
+
+      <?php 
+        foreach($resultat as $key => $value) {
+            echo '<tr><td><br> '.$value['nom'].'</td>';
+            
+            echo '<td><br>
+                <div class="form-group">
+                <label for="sel1"></label>
+                <select class="form-control" id="sel1">';
+                foreach($promos as $combo => $valeur) {
+                    echo '<option>'.$valeur['promo'].' </option>';
+
+
+                }
+                        
+            echo '</select></div></td>';    
+            echo '</tr>';
+
+        }
                             
-                            echo '<td><br>
-                                <div class="form-group">
-                                <label for="sel1"></label>
-                                <select class="form-control" id="sel1">';
-                                foreach($promos as $combo => $valeur) {
-                                    echo '<option>'.$valeur['promo'].' </option>';
+
+    ?>
 
 
-                                }
-                                        
-                            echo '</select></div></td>';    
-                            echo '</tr>';
 
-                        }
-                            
-
-                    ?>
+    </tbody>
 
 
-                    
-                </tbody>
-
-
-            </table>
+  </table>
 
 
 
 </body>
 <footer>
-  <?php include("../footer.php"); ?>
+  <?php include("Vue/footer.php"); ?>
 </footer>
 
 </html>
