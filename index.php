@@ -1,7 +1,6 @@
 <?php
 
 
-
 function load_class_dir($mydir){
     foreach (glob("./".$mydir."/*.php") as $classfile){
         include_once $classfile;
@@ -9,25 +8,31 @@ function load_class_dir($mydir){
 }
 
 
-
 include_once('Controleur/route.php');
 include_once('Controleur/authenticate.php');
-
 
 
 // load_class_dir('src');
 load_class_dir('Controleur');
 //load_class_dir('Controleur/user');
 
+
 $route = new Route();
+
+
 $route->add('/', 'login' );
+
 
 $route->add('/admin', function(){ 
     $example = new AdminUser; 
+    $example -> Accueil();
 });
 
 
-
+$route->add('/admin/creationFormateur', function(){ 
+    $example1 = new AdminUser; 
+    $example1 -> AjouterFormateur();
+});
 
 
 $route->add('/deconnexion', function(){ 
@@ -58,7 +63,6 @@ $route->add('/auth', function(){
         header("LOCATION: http://localhost");
     }
 } );
-
 
 
 // $route->add('/test/hello', function(){ echo "routage suplémentaire"; } );

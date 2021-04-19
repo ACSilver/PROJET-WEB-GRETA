@@ -14,19 +14,20 @@
 
 </header>
 
-
-<body class="centrer  ">
-
+<body>
 
 
-<?php include("'".$pagename."'.php'"); ?>
+<div>
 
-
-
+  <div class='center contenue'>
+    <?php include($_SESSION['pagename'].".php"); ?>
+  </div>
 
 </body>
+
+
 <footer>
-  <?php include("../footer.php"); ?>
+  <?php include("Vue/footer.php"); ?>
 </footer>
 
 </html>
