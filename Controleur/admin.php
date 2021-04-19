@@ -5,6 +5,8 @@
 class AdminUser {
 
     public function __construct() {
+
+        $pagename = 'accueiladmin';
         include ('Vue/admin/accueiladmin.php');
     //    $this->_first_other();
     //    $this->_second_other();
