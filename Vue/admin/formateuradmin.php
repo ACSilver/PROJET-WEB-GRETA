@@ -1,3 +1,33 @@
+<?php
+
+
+require("../../Model/connect.php");
+
+
+
+$db = new db_connector(DB_DATABASE);
+
+$connexion = $db->connexion();
+
+
+$AfficherListeFormateur=("SELECT nom FROM formateur");
+
+
+
+$query = $connexion->prepare($AfficherListeFormateur);
+
+
+$query->execute();
+
+$resultat = $query->fetchAll();
+
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +54,51 @@
     <p class=" centrer">Bienvenue, sur la page des formateurs! <br /> Merci d'utiliser notre service de technologie 2.0 !
     </p>
   </div>
+
+  <table class="table">
+                <thead>
+                    <tr>
+                        <th>Formations</th>
+                        <th>Année de la promotion</th>
+                    </tr>
+                </thead>
+
+                <input type="button" class="btn btn-success" value="Ajouter formateur" >
+                <input type="button" class="btn btn-warning" value="Modifier formateur" >
+                <input type="button" class="btn btn-danger" value="Désactiver formateur" >
+
+                <tbody>
+
+                    <?php 
+                        foreach($resultat as $key => $value) {
+                            echo '<tr><td><br> '.$value['nom'].'</td>';
+                            
+                            echo '<td><br>
+                                <div class="form-group">
+                                <label for="sel1"></label>
+                                <select class="form-control" id="sel1">';
+                                foreach($promos as $combo => $valeur) {
+                                    echo '<option>'.$valeur['promo'].' </option>';
+
+
+                                }
+                                        
+                            echo '</select></div></td>';    
+                            echo '</tr>';
+
+                        }
+                            
+
+                    ?>
+
+
+                    
+                </tbody>
+
+
+            </table>
+
+
 
 </body>
 <footer>
