@@ -1,106 +1,67 @@
 <?php
 
-//je commence la session 
-session_start();
 
 
-// Je vérifie si l'utilisateur a tapé son identifiant et son mot de passe:
-
-
-//l'id est vide par défaut , donc par défaut un message apparaît qui dit que l'id et mdp sont requis
-
-if (empty($_POST["id"]) || empty($_POST["mdp"])) {
-	$message = 'All fields are required';
-	echo $message;
+function load_class_dir($mydir){
+    foreach (glob("./".$mydir."/*.php") as $classfile){
+        include_once $classfile;
+    }
 }
-//si l'identifiant et le mdp ne sont pas vides
-else {
-	//echo "there is a id and mdp" ;
-
-	//nous sauvegardons les paramètres saisis par l'utilisateur sous $ id et $ mdp
-	$id = $_POST['id'];
-	$mdp = $_POST['mdp'];
-	$_SESSION['id'] = $id;
-	$_SESSION['mdp'] = $mdp;
 
 
 
-	// nous incluons une page php, dans laquelle il y a une fonction utilisée pour valider l'id et msp
-	include('Controleur/user/checkid.php');
-
-	//nous appelons la fonction check_id qui est dans la page php que nous incluons précédemment, nous y insérons 2 paramètres ($ id, $ mdp)
-	checkid($id, $mdp);
-
-	//cette fonction nous renvoie une valeur appelée ( $ _SESSION ['value'] ) qui peut être égale à true ou false
+include_once('Controleur/route.php');
+include_once('Controleur/authenticate.php');
 
 
-	//nous sauvegardons cette fonction en l'appelant $ valide
-	$valide = $_SESSION['valide'];
-	//echo $valide;
+
+// load_class_dir('src');
+load_class_dir('Controleur');
+//load_class_dir('Controleur/user');
+
+$route = new Route();
+$route->add('/', 'login' );
+
+$route->add('/admin', function(){ 
+    $example = new AdminUser; 
+});
 
 
 
 
-	//nous vérifions si cette valeur est vraie ou fausse
+
+$route->add('/deconnexion', function(){ 
+    $example = new Logout();
+    $example -> logout(); 
+    if ($_SESSION['loggedin'] == false) {
+        header("LOCATION: http://localhost");
+    }
+} );
 
 
-	//si c'est vrai
-	if ($valide == true) {
-		echo ("its working"); //TO DO
-	}
-	//si non
-	else {
-		echo ("its not working"); //TO DO
+$route->add('/auth', function(){ 
+    $example = new Auth();
+    $example -> ValidatedUser(); 
+    if ($_SESSION['loggedin'] == true) {
+        
+        if ($_SESSION['usertype'] ==  '0') {
+            header("LOCATION: http://localhost/admin");
+        }
+        elseif ($_SESSION['usertype'] ==  '1') {
+            header("LOCATION: http://localhost/prof");
+        }
+        elseif ($_SESSION['usertype'] ==  '2') {
+            header("LOCATION: http://localhost/stagaire");
+        }
+    }
+    else {
+        header("LOCATION: http://localhost");
+    }
+} );
 
-	}
 
-	//pour finir on arrête la session	
-	session_destroy();
-}
+
+// $route->add('/test/hello', function(){ echo "routage suplémentaire"; } );
+//$route->get('');
+$route->submit('');
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Connexion</title>
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<link rel="stylesheet" href="css/footer.css" type="text/css" />
-	<script src="../../js/bootstrap.js"> </script>
-</head>
-
-<body class="centrer " ; style="height:auto; ">
-
-	<?php include("Vue/header.php"); ?>
-
-	<div class="contenu" style="margin-top: 5%; " ;>
-		<p>
-		<div>
-			<h3>Page d'introduction</h3>
-			<p>
-			<form action="index.php" method="post">
-				<p>
-					<label>Votre identifiant :</label>
-					<input type="text" name="id">
-				</p>
-				<p>
-					<label>Mot de passe :</label>
-					<input type="password" name="mdp">
-				</p>
-				<p>
-					<input type="submit" value="Valider"> <a href="Vue/admin/accueiladmin.php">admin</a> <a href="Vue/formateur/accueilformateur.php">formateur</a> <a href="Vue/stagiaire/accueilstagiaire.php">stagiaire</a>
-				</p>
-
-			</form>
-
-			</p>
-		</div>
-
-
-		</p>
-	</div>
-	<div> <?php include("Vue/footer.php"); ?> </div>
-</body>
-
-</html>
