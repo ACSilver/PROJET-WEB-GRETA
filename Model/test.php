@@ -114,3 +114,7 @@ $AfficherFormationEtPromo=("SELECT nom, promo
                             WHERE promo.IDpromo = lienpromo.IDpromo 
                             AND formation.IDformation=$IDformation 
                             AND lienpromo.IDformation=$IDformation");
+//
+//requete pour creer un login/mdp
+$CreerLoginMDP=("INSERT INTO 'securite'(identifiant, mdp, grainDeSel, statut)
+                    VALUES($identifiant, $mdp, $grainDeSel, $statut)");
