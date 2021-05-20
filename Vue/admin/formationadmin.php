@@ -93,9 +93,7 @@ $promos = $query2->fetchAll();
 
                     <?php 
                         foreach($resultat as $key => $value) {
-                            echo '<tr><td><br> <a href="promoadmin.php" >'.$value['nom'].'</a></td>';
-                            
-                                
+                            echo '<tr><td><br> <a href="ListePromoadmin" >'.$value['nom'].'</a></td>';   
                             echo '</tr>';
 
                         }

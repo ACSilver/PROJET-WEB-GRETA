@@ -63,6 +63,11 @@ if (isset($_SESSION['loggedin'])){
             });
 
 
+            $route->add('ListePromoadmin', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AffichePageUneFormation();
+            });
+
         }
         
         

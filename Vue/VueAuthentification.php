@@ -37,7 +37,7 @@
 
 				</p>
 				<p>
-					<input type="submit" value="Valider"> <a href="Vue/admin/accueiladmin.php">admin</a> <a href="Vue/formateur/accueilformateur.php">formateur</a> <a href="Vue/stagiaire/accueilstagiaire.php">stagiaire</a>
+					<input type="submit" value="Valider"> 
 				</p>
 
 

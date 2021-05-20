@@ -50,7 +50,9 @@ class AdminUser {
         include_once ('Vue/admin/creationformateur.php');
     }
 
-
+    public function AffichePageUneFormation() {
+        include ('Vue/admin/listepromoadmin.php');
+    }
     
     
 }
