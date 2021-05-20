@@ -27,7 +27,7 @@
 
 </body>
 <footer>
-  <?php include("./footer.php"); ?>
+  <?php include("Vue/footer.php"); ?>
 </footer>
 
 </html>
