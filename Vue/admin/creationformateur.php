@@ -1,3 +1,44 @@
+<?php
+
+
+require("Model/connect.php");
+
+
+
+$db = new db_connector(DB_DATABASE);
+
+$connexion = $db->connexion();
+
+
+$AfficherListeFormation=("SELECT nom FROM formation");
+$AfficherPromotion=("SELECT promo FROM promo");
+// $AfficherFormationEtPromo=("SELECT nom 
+//                             FROM formation 
+//                             WHERE IDformation=$IDformation 
+//                             UNION SELECT promo 
+//                             FROM promo 
+//                             INNER JOIN lienpromo 
+//                             WHERE promo.IDpromo = lienpromo.IDpromo 
+//                             AND IDformation=$IDformation");
+
+
+$query = $connexion->prepare($AfficherListeFormation);
+$query2 = $connexion->prepare($AfficherPromotion);
+
+
+$query->execute();
+$query2->execute();
+
+$resultat = $query->fetchAll();
+$promos = $query2->fetchAll();
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
