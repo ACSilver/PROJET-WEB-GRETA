@@ -119,7 +119,7 @@ $RecupererLibelle=("SELECT libelle
 $RecupererReference=("SELECT descRef
                         FROM ref
                         WHERE IDlibelle=$IDlibelle");
-//requete pour afficher une competence
+//requete pour recuperer toutes les competences d'une reference
 $AfficherGrille=("SELECT descCompetence 
                 FROM competence 
                 WHERE IDref=$IDref");
