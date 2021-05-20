@@ -25,7 +25,7 @@
         <button class="btn btn-outline-success" type="submit">Recherche</button>
         <button style="margin-left: 10%; text-decoration:none; " class="btn btn-danger" type="button"><a href="../../index.php">Déconnexion</a></button>
 
-        <a href="deconnexion">Déconnexion version 2</a>
+        <a href="../../../../../../deconnexion">Déconnexion version 2</a>
       </form>
     </div>
   </div>
