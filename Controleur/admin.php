@@ -29,24 +29,7 @@ class AdminUser {
 
     // lien formateurs avec ses actions
 
-    public function Formateurs() {
-
-
-        // require("Model/connect.php");
-
-        // $db = new db_connector(DB_DATABASE);
-
-        // $connexion = $db->connexion();
-
-
-        // $AfficherListeFormateur=("SELECT nom FROM formateur");
-
-        // $query = $connexion->prepare($AfficherListeFormateur);
-
-        // $query->execute();
-
-        // $resultat = $query->fetchAll();
-
+    public function  AffichePageFormateurs() {
         include_once ('Vue/admin/formateuradmin.php');
     }
 

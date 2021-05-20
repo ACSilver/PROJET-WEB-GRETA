@@ -22,47 +22,72 @@ $route = new Route();
 session_start();
 
 
-// tout les route de Admin
+
+
+if (isset($_SESSION['loggedin'])){
+    if (isset($_SESSION['usertype'])){
+
+
+        $route->add('deconnexion', function(){ 
+            $example = new Auth();
+            $example -> logout(); 
+            session_destroy();
+            header("LOCATION: http://localhost");
+        } );
+
+        // tout les route de Admin
+
+        if ($_SESSION['usertype'] == "0") {
+            $route->add('Accueil', function(){ 
+                $example = new AdminUser; 
+                $example -> Accueil();
+            });
+            
+            $route->add('Formateurs/creationFormateur', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AjouterFormateur();
+            });
+            
+            $route->add('Formateurs', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AffichePageFormateurs();
+            });
+        }
+        
+        
+        // tout les route de Formateurs
+
+        if ($_SESSION['usertype'] == "1") {
+            $route->add('Accueil', function(){ 
+                $example = new FormateurUser; 
+                $example -> Accueil();
+            });
+
+        }
+        
+        
+        // tout les route de Stagiaires
+
+        if ($_SESSION['usertype'] == "2") {
+
+            $route->add('Accueil', function(){ 
+                $example = new StagiaireUser; 
+                $example -> Accueil();
+            });
+        }
+    }
+}
 
 
 
 
 
-$route->add('/info', function(){ 
-    $example = new info; 
-});
 
 
-$route->add('/admin', function(){ 
-
-    $example = new AdminUser; 
-    $example -> Accueil();
-});
-
-$route->add('/admin/Formateurs/creationFormateur', function(){ 
-    $example1 = new AdminUser; 
-    $example1 -> AjouterFormateur();
-});
-
-$route->add('/admin/Formateurs', function(){ 
-    $example1 = new AdminUser; 
-    $example1 -> Formateurs();
-});
 
 
-// tout les route de Formateurs
 
-$route->add('/formateur', function(){ 
-    $example = new FormateurUser; 
-    $example -> Accueil();
-});
 
-// tout les route de Stagiaires
-
-$route->add('/stagiaire', function(){ 
-    $example = new StagiaireUser; 
-    $example -> Accueil();
-});
 
 
 // Tout les route de Auth
@@ -71,28 +96,11 @@ $route->add('/stagiaire', function(){
 $route->add('/', 'login' );
 
 
-$route->add('deconnexion', function(){ 
-    $example = new Auth();
-    $example -> logout(); 
-    session_destroy();
-    header("LOCATION: http://localhost");
-} );
-
-
 $route->add('/auth', function(){ 
     $example = new Auth();
     $example -> ValidatedUser(); 
     if ($_SESSION['loggedin'] == true) {
-        
-        if ($_SESSION['usertype'] ==  '0') {
-            header("LOCATION: http://localhost/admin");
-        }
-        elseif ($_SESSION['usertype'] ==  '1') {
-            header("LOCATION: http://localhost/formateur");
-        }
-        elseif ($_SESSION['usertype'] ==  '2') {
-            header("LOCATION: http://localhost/stagiaire");
-        }
+            header("LOCATION: http://localhost/Accueil");
     }
     else {
         header("LOCATION: http://localhost");
