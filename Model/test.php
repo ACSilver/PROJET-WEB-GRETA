@@ -93,15 +93,6 @@ $ListeStagiaire=("SELECT nom FROM stagiaire");
 $RecupererLoginMDP=("SELECT identifiant FROM securite WHERE EXISTS(
                     SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
 //
-//requete pour afficher une competence
-$AfficherGrille=("SELECT descCompetence 
-                FROM competence 
-                WHERE IDref=$IDref");
-//
-//requete pour afficher une reference
-$AfficherReference=("SELECT descRef 
-                    FROM ref 
-                    WHERE IDlibelle=$IDlibelle");
 //
 //requete pour afficher promotion
 $AfficherPromotion=("SELECT promo 
@@ -118,3 +109,20 @@ $AfficherFormationEtPromo=("SELECT nom, promo
 //requete pour creer un login/mdp
 $CreerLoginMDP=("INSERT INTO 'securite'(identifiant, mdp, grainDeSel, statut)
                     VALUES($identifiant, $mdp, $grainDeSel, $statut)");
+//
+//requete pour recuperer tous les libelles d'un modele de grille
+$RecupererLibelle=("SELECT libelle 
+                    FROM libelle 
+                    WHERE IDmodeleGrille=$IDmodeleGrille");
+//
+//requete pour recuperer toutes les references d'un libelle
+$RecupererReference=("SELECT descRef
+                        FROM ref
+                        WHERE IDlibelle=$IDlibelle");
+//requete pour afficher une competence
+$AfficherGrille=("SELECT descCompetence 
+                FROM competence 
+                WHERE IDref=$IDref");
+//
+//requete pour que le stagiaire selectionne la grille qu'il veut
+$SelectionGrilleParStagiaire=("SELECT promo FROM ");
