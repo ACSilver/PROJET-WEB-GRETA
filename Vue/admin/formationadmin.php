@@ -1,7 +1,7 @@
 <?php
 
 
-require("../../Model/connect.php");
+require("Model/connect.php");
 
 
 

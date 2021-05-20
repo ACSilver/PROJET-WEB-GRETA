@@ -52,6 +52,17 @@ if (isset($_SESSION['loggedin'])){
                 $example1 = new AdminUser; 
                 $example1 -> AffichePageFormateurs();
             });
+
+            $route->add('Formations', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AffichePageFormations();
+            });
+            $route->add('Stagiaires', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AffichePageStagiaires();
+            });
+
+
         }
         
         

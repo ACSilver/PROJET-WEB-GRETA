@@ -13,13 +13,13 @@
           <a class="nav-link active" aria-current="page" href="#">GRETA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="formationadmin.php">Formations</a>
+          <a class="nav-link" href="Formations">Formations</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Formateurs">Formateurs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="stagiaireadmin.php">Stagiaires</a>
+          <a class="nav-link" href="Stagiaires">Stagiaires</a>
         </li>
       </ul>
       <form class="d-flex">

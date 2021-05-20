@@ -38,6 +38,18 @@ class AdminUser {
         include_once ('Vue/admin/creationformateur.php');
     }
 
+    public function  AffichePageFormations() {
+        include_once ('Vue/admin/formationadmin.php');
+    }
+
+    public function  AffichePageStagiaires() {
+        include_once ('Vue/admin/stagiaireadmin.php');
+    }
+
+    public function AjouterFormation() {
+        include_once ('Vue/admin/creationformateur.php');
+    }
+
 
     
     
