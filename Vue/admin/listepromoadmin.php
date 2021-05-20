@@ -1,7 +1,7 @@
 <?php
 
 
-require("../../Model/connect.php");
+require("Model/connect.php");
 
 
 
@@ -93,7 +93,8 @@ $promos = $query2->fetchAll();
 
                     <?php 
                         foreach($promos as $key => $value) {
-                            echo '<tr><td><br> <a href="" >'.$value['promo'].'</a></td>';
+                            echo '<tr><td><br> <a href="test" >'.$value['promo'].'</a></td>';
+                            
                             
                                 
                             echo '</tr>';

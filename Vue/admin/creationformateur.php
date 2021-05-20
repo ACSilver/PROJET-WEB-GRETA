@@ -44,7 +44,7 @@
 
           <select class="form-control">
             <option value="+1">2020-2021)</option>
-            <option value="1">S2019-2020</option>
+            <option value="1">2019-2020</option>
             <option value="1">2018-2019</option>
           </select>
         </div>
