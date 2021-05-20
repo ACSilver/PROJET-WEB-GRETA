@@ -1,16 +1,12 @@
 <?php
 
-
 require("Model/connect.php");
-
-
 
 $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-
-$AfficherListeFormation=("SELECT nom FROM formation");
+//$AfficherListeFormation=("SELECT nom FROM formation");
 $AfficherPromotion=("SELECT promo FROM promo");
 // $AfficherFormationEtPromo=("SELECT nom 
 //                             FROM formation 
@@ -22,23 +18,17 @@ $AfficherPromotion=("SELECT promo FROM promo");
 //                             AND IDformation=$IDformation");
 
 
-$query = $connexion->prepare($AfficherListeFormation);
+//$query = $connexion->prepare($AfficherListeFormation);
 $query2 = $connexion->prepare($AfficherPromotion);
 
 
-$query->execute();
+//$query->execute();
 $query2->execute();
 
-$resultat = $query->fetchAll();
+//$resultat = $query->fetchAll();
 $promos = $query2->fetchAll();
 
-
-
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -51,37 +41,19 @@ $promos = $query2->fetchAll();
 </head>
 
 <header>
-
     <?php include("headeradmin.php"); ?>
-
 </header>
 
-
-
-
 <body class="centrer  "> 
-
-
-
     <div class="contenu centrer " style="margin-top: 5%;" >
 
-        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !
-        </p>
+        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !</p>
 
         <div>
-
-
-        <table>
-
-        </table>
-
-
-
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Promotions <php? > $formation</php></th>
-                        
+                        <th>Promotions <?php $formation ?></th>
                     </tr>
                 </thead>
 
@@ -90,36 +62,18 @@ $promos = $query2->fetchAll();
                 <input type="button" class="btn btn-danger" value="Désactiver formation" >
 
                 <tbody>
-
                     <?php 
                         foreach($promos as $key => $value) {
-                            echo '<tr><td><br> <a href="test" >'.$value['promo'].'</a></td>';
-                            
-                            
-                                
+                            echo '<tr><td><br> <a href="test" >'.$value['promo'].'</a></td>'; 
                             echo '</tr>';
-
                         }
-                            
-
                     ?>
-
-
-                    
                 </tbody>
-
-
             </table>
-
-
         </div>
-
-
     </div>
-
-    
-
 </body>
+
 <footer>
     <?php include("Vue/footer.php"); ?>
 </footer>
