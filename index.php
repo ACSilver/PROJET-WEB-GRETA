@@ -1,32 +1,24 @@
 <?php
 
-
 function load_class_dir($mydir){
     foreach (glob("./".$mydir."/*.php") as $classfile){
         include_once $classfile;
     }
 }
 
-
 include_once('Controleur/route.php');
 include_once('Controleur/authenticate.php');
-
 
 // load_class_dir('src');
 load_class_dir('Controleur');
 //load_class_dir('Controleur/user');
 
-
 $route = new Route();
 
 session_start();
 
-
-
-
 if (isset($_SESSION['loggedin'])){
     if (isset($_SESSION['usertype'])){
-
 
         $route->add('deconnexion', function(){ 
             $example = new Auth();
@@ -70,7 +62,6 @@ if (isset($_SESSION['loggedin'])){
 
         }
         
-        
         // tout les route de Formateurs
 
         if ($_SESSION['usertype'] == "1") {
@@ -80,7 +71,6 @@ if (isset($_SESSION['loggedin'])){
             });
 
         }
-        
         
         // tout les route de Stagiaires
 
@@ -94,23 +84,8 @@ if (isset($_SESSION['loggedin'])){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Tout les route de Auth
-
-
+// Toutes les routes de Auth
 $route->add('/', 'login' );
-
 
 $route->add('/auth', function(){ 
     $example = new Auth();
@@ -122,10 +97,6 @@ $route->add('/auth', function(){
         header("LOCATION: http://localhost");
     }
 } );
-
-
-
-
 
 // $route->add('/test/hello', function(){ echo "routage suplémentaire"; } );
 //$route->get('');

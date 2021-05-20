@@ -9,28 +9,15 @@
 </head>
 
 <header>
-
 	<?php include("header.php"); ?>
-
 </header>
 
-
 <body class="centrer fond ">
-
-
-
 	<div class="contenu centrer" style="margin-top: 5%;" ;>
-
 		<p class=" centrer">Page choix des stagiaires </p>
-
-
-
-
-
-
 	</div>
-
 </body>
+
 <footer class="">
 	<?php include("footer.php"); ?>
 </footer>
