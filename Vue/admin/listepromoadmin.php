@@ -8,7 +8,7 @@ $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherPromotion=("SELECT promo 
+$AfficherPromotion=("SELECT promo,promo.IDpromo 
                     FROM promo
                     INNER JOIN lienpromo ON promo.IDpromo=lienpromo.IDpromo
                     INNER JOIN formation ON lienpromo.IDformation=formation.IDformation
@@ -45,7 +45,7 @@ $promos = $query->fetchAll();
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Promotions <?php $formation ?></th>
+                        <th>Promotions</th>
                     </tr>
                 </thead>
 
@@ -56,7 +56,7 @@ $promos = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($promos as $key => $value) {
-                            echo '<tr><td><br> <a href="Stagiaires" >'.$value['promo'].'</a></td>'; 
+                            echo "<tr><td><br> <a href='Stagiaires?formation=".$IDformation."&promo=".$value['IDpromo']."'>".$value['promo'].'</a></td>'; 
                             echo '</tr>';
                         }
                     ?>

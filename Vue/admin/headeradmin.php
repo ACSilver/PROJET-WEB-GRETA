@@ -19,7 +19,7 @@
           <a class="nav-link" href="Formateurs">Formateurs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Stagiaires">Stagiaires</a>
+          <a class="nav-link" href="ListeStagiaires">Stagiaires</a>
         </li>
       </ul>
       <form class="d-flex">

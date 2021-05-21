@@ -33,7 +33,6 @@ class AdminUser {
         include_once ('Vue/admin/formateuradmin.php');
     }
 
-
     public function AjouterFormateur() {
         include_once ('Vue/admin/creationformateur.php');
     }
@@ -44,6 +43,10 @@ class AdminUser {
 
     public function  AffichePageStagiaires() {
         include_once ('Vue/admin/stagiaireadmin.php');
+    }
+
+    public function  AfficheListeStagiaires() {
+        include_once ('Vue/admin/listestagiaireadmin.php');
     }
 
     public function AjouterFormation() {

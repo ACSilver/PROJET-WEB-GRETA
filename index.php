@@ -53,7 +53,10 @@ if (isset($_SESSION['loggedin'])){
                 $example1 = new AdminUser; 
                 $example1 -> AffichePageStagiaires();
             });
-
+            $route->add('ListeStagiaires', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AfficheListeStagiaires();
+            });
 
             $route->add('ListePromoAdmin', function(){ 
                 $example1 = new AdminUser; 

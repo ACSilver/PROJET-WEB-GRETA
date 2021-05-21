@@ -2,17 +2,11 @@
 
 require("Model/connect.php");
 
-$IDformation=$_GET["formation"]; // On recupere l'id de la promotion dans l'URL
-$IDpromo=$_GET["promo"];
-
 $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherListeStagiaire=("SELECT nom
-                        FROM stagiaire as S
-                        INNER JOIN lienstagiaire AS LS ON S.IDstagiaire=LS.IDstagiaire 
-                        WHERE LS.IDformation=$IDformation AND LS.IDpromo=$IDpromo");
+$AfficherListeStagiaire=("SELECT nom FROM stagiaire");
 
 $query=$connexion->prepare($AfficherListeStagiaire);
 
@@ -59,7 +53,7 @@ $stagiaire = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($stagiaire as $key => $value) {
-                            echo '<tr><td><br> <a href="Grille" >'.$value['nom'].'</a></td>'; 
+                            echo '<tr><td><br> <a href="" >'.$value['nom'].'</a></td>'; 
                             echo '</tr>';
                         }
                     ?>
