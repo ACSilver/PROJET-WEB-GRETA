@@ -64,7 +64,7 @@ $promos = $query2->fetchAll();
                 <tbody>
                     <?php 
                         foreach($promos as $key => $value) {
-                            echo '<tr><td><br> <a href="test" >'.$value['promo'].'</a></td>'; 
+                            echo '<tr><td><br> <a href="Stagiaires" >'.$value['promo'].'</a></td>'; 
                             echo '</tr>';
                         }
                     ?>
