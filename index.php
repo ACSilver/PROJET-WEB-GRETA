@@ -1,28 +1,21 @@
 <?php
 
-
 function load_class_dir($mydir){
     foreach (glob("./".$mydir."/*.php") as $classfile){
         include_once $classfile;
     }
 }
 
-
 include_once('Controleur/route.php');
 include_once('Controleur/authenticate.php');
-
 
 // load_class_dir('src');
 load_class_dir('Controleur');
 //load_class_dir('Controleur/user');
 
-
 $route = new Route();
 
 session_start();
-
-
-
 
 if (isset($_SESSION['loggedin'])){
     if (isset($_SESSION['usertype'])){
@@ -39,7 +32,7 @@ if (isset($_SESSION['loggedin'])){
             header("LOCATION: http://localhost");
         } );
 
-        // tout les route de Admin
+        // toutes les routes de Admin
 
         if ($_SESSION['usertype'] == "0") {
             $route->add('Accueil', function(){ 
@@ -47,7 +40,7 @@ if (isset($_SESSION['loggedin'])){
                 $example -> Accueil();
             });
             
-            $route->add('Formateurs/creationFormateur', function(){ 
+            $route->add('creationFormateur', function(){ 
                 $example1 = new AdminUser; 
                 $example1 -> AjouterFormateur();
             });
@@ -67,10 +60,14 @@ if (isset($_SESSION['loggedin'])){
             });
 
 
+            $route->add('ListePromoAdmin', function(){ 
+                $example1 = new AdminUser; 
+                $example1 -> AffichePageUneFormation();
+            });
+
         }
         
-        
-        // tout les route de Formateurs
+        // toutes les routes de Formateurs
 
         if ($_SESSION['usertype'] == "1") {
             $route->add('Accueil', function(){ 
@@ -80,8 +77,7 @@ if (isset($_SESSION['loggedin'])){
 
         }
         
-        
-        // tout les route de Stagiaires
+        // toutes les routes de Stagiaires
 
         if ($_SESSION['usertype'] == "2") {
 
@@ -121,10 +117,6 @@ else{
 
 
 // Tout les route de Auth
-
-
-
-
 
 
 

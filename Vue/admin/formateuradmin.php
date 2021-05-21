@@ -62,13 +62,12 @@ $resultat = $query->fetchAll();
       </tr>
     </thead>
 
-    <input type="button" class="btn btn-success" value="Ajouter formateur">
-
-    <a href="Formateurs/creationFormateur" class="btn btn-success">Ajouter Formateur v2 </a>
-
+    
+<div style="padding-top: -50px">
+    <input type="button" class="btn btn-success" value="Ajouter Formateur"><a href="creationFormateur"></a>
     <input type="button" class="btn btn-warning" value="Modifier formateur">
     <input type="button" class="btn btn-danger" value="Désactiver formateur">
-
+</div>
     <tbody>
 
       <?php 

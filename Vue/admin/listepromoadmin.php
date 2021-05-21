@@ -1,44 +1,26 @@
 <?php
 
+require("Model/connect.php");
 
-require("../../Model/connect.php");
-
-
+$IDformation=$_GET["formation"]; // On recupere l'id de la promotion dans l'URL
 
 $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
+$AfficherPromotion=("SELECT promo 
+                    FROM promo
+                    INNER JOIN lienpromo ON promo.IDpromo=lienpromo.IDpromo
+                    INNER JOIN formation ON lienpromo.IDformation=formation.IDformation
+                    WHERE formation.IDformation=$IDformation;");
 
-$AfficherListeFormation=("SELECT nom FROM formation");
-$AfficherPromotion=("SELECT promo FROM promo");
-// $AfficherFormationEtPromo=("SELECT nom 
-//                             FROM formation 
-//                             WHERE IDformation=$IDformation 
-//                             UNION SELECT promo 
-//                             FROM promo 
-//                             INNER JOIN lienpromo 
-//                             WHERE promo.IDpromo = lienpromo.IDpromo 
-//                             AND IDformation=$IDformation");
-
-
-$query = $connexion->prepare($AfficherListeFormation);
-$query2 = $connexion->prepare($AfficherPromotion);
-
+$query = $connexion->prepare($AfficherPromotion);
 
 $query->execute();
-$query2->execute();
 
-$resultat = $query->fetchAll();
-$promos = $query2->fetchAll();
-
-
-
-
-
+$promos = $query->fetchAll();
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -51,37 +33,19 @@ $promos = $query2->fetchAll();
 </head>
 
 <header>
-
     <?php include("headeradmin.php"); ?>
-
 </header>
 
-
-
-
 <body class="centrer  "> 
-
-
-
     <div class="contenu centrer " style="margin-top: 5%;" >
 
-        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !
-        </p>
+        <p class=" centrer">Bienvenue, sur la page des promotions! <br />Merci d'utiliser notre service de technologie 2.0 !</p>
 
         <div>
-
-
-        <table>
-
-        </table>
-
-
-
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Promotions <php? > $formation</php></th>
-                        
+                        <th>Promotions <?php $formation ?></th>
                     </tr>
                 </thead>
 
@@ -90,35 +54,18 @@ $promos = $query2->fetchAll();
                 <input type="button" class="btn btn-danger" value="Désactiver formation" >
 
                 <tbody>
-
                     <?php 
                         foreach($promos as $key => $value) {
-                            echo '<tr><td><br> <a href="" >'.$value['promo'].'</a></td>';
-                            
-                                
+                            echo '<tr><td><br> <a href="Stagiaires" >'.$value['promo'].'</a></td>'; 
                             echo '</tr>';
-
                         }
-                            
-
                     ?>
-
-
-                    
                 </tbody>
-
-
             </table>
-
-
         </div>
-
-
     </div>
-
-    
-
 </body>
+
 <footer>
     <?php include("Vue/footer.php"); ?>
 </footer>
