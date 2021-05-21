@@ -27,7 +27,7 @@ if (isset($_SESSION['loggedin'])){
             header("LOCATION: http://localhost");
         } );
 
-        // tout les route de Admin
+        // toutes les routes de Admin
 
         if ($_SESSION['usertype'] == "0") {
             $route->add('Accueil', function(){ 
@@ -55,14 +55,14 @@ if (isset($_SESSION['loggedin'])){
             });
 
 
-            $route->add('ListePromoadmin', function(){ 
+            $route->add('ListePromoAdmin', function(){ 
                 $example1 = new AdminUser; 
                 $example1 -> AffichePageUneFormation();
             });
 
         }
         
-        // tout les route de Formateurs
+        // toutes les routes de Formateurs
 
         if ($_SESSION['usertype'] == "1") {
             $route->add('Accueil', function(){ 
@@ -72,7 +72,7 @@ if (isset($_SESSION['loggedin'])){
 
         }
         
-        // tout les route de Stagiaires
+        // toutes les routes de Stagiaires
 
         if ($_SESSION['usertype'] == "2") {
 

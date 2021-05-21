@@ -1,32 +1,22 @@
 <?php
 
-require("Model/connect.php");
+$IDformation=$_GET["formation"]; // On recupere l'id de la promotion dans l'URL
 
 $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-//$AfficherListeFormation=("SELECT nom FROM formation");
-$AfficherPromotion=("SELECT promo FROM promo");
-// $AfficherFormationEtPromo=("SELECT nom 
-//                             FROM formation 
-//                             WHERE IDformation=$IDformation 
-//                             UNION SELECT promo 
-//                             FROM promo 
-//                             INNER JOIN lienpromo 
-//                             WHERE promo.IDpromo = lienpromo.IDpromo 
-//                             AND IDformation=$IDformation");
+$AfficherPromotion=("SELECT promo 
+                    FROM promo
+                    INNER JOIN lienpromo ON promo.IDpromo=lienpromo.IDpromo
+                    INNER JOIN formation ON lienpromo.IDformation=formation.IDformation
+                    WHERE formation.$IDformation=1;");
 
+$query = $connexion->prepare($AfficherPromotion);
 
-//$query = $connexion->prepare($AfficherListeFormation);
-$query2 = $connexion->prepare($AfficherPromotion);
+$query->execute();
 
-
-//$query->execute();
-$query2->execute();
-
-//$resultat = $query->fetchAll();
-$promos = $query2->fetchAll();
+$promos = $query->fetchAll();
 
 ?>
 
@@ -47,7 +37,7 @@ $promos = $query2->fetchAll();
 <body class="centrer  "> 
     <div class="contenu centrer " style="margin-top: 5%;" >
 
-        <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0 !</p>
+        <p class=" centrer">Bienvenue, sur la page des promotions! <br />Merci d'utiliser notre service de technologie 2.0 !</p>
 
         <div>
             <table class="table">
