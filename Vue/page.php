@@ -9,17 +9,23 @@
 </head>
 
 <header>
+
   <?php include("header.php"); ?>
+
 </header>
 
 
 <body class="centrer  ">
+
+
+
   <div class="corps centrer" style="margin-top: 5%;" ;>
+
     <p class=" centrer">Bienvenue, sur la page d'accueil! <br /> Merci d'utiliser notre service de technologie 2.0 !
     </p>
-  </div>
-</body>
 
+
+</body>
 <footer>
   <?php include("footer.php"); ?>
 </footer>

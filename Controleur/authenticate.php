@@ -91,6 +91,7 @@ class Auth {
          unset($_SESSION['loggedin']);
          unset($_SESSION['usertype']);
          unset($_SESSION['errormessage']);
+         unset($_SESSION['name']);
          return $_SESSION['loggedin'];
     }
 

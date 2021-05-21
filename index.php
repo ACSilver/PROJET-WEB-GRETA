@@ -20,6 +20,11 @@ session_start();
 if (isset($_SESSION['loggedin'])){
     if (isset($_SESSION['usertype'])){
 
+        $route->add('/', function(){
+            header("LOCATION: http://localhost/Accueil");
+        } );
+
+
         $route->add('deconnexion', function(){ 
             $example = new Auth();
             $example -> logout(); 
@@ -86,20 +91,38 @@ if (isset($_SESSION['loggedin'])){
         }
     }
 }
+else{
+    $route->add('/', 'login' );
 
-// Toutes les routes de Auth
-$route->add('/', 'login' );
 
-$route->add('/auth', function(){ 
-    $example = new Auth();
-    $example -> ValidatedUser(); 
-    if ($_SESSION['loggedin'] == true) {
-            header("LOCATION: http://localhost/Accueil");
-    }
-    else {
-        header("LOCATION: http://localhost");
-    }
-} );
+    $route->add('/auth', function(){ 
+        $example = new Auth();
+        $example -> ValidatedUser(); 
+        if ($_SESSION['loggedin'] == true) {
+                header("LOCATION: http://localhost/Accueil");
+        }
+        else {
+            header("LOCATION: http://localhost");
+        }
+    } );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Tout les route de Auth
+
+
+
 
 // $route->add('/test/hello', function(){ echo "routage suplémentaire"; } );
 //$route->get('');
