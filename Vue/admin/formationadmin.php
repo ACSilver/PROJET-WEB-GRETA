@@ -61,7 +61,7 @@ $resultat = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($resultat as $key => $value) {
-                            echo "<tr><td><br> <a href='ListePromoAdmin?formation".$value['IDformation']."'>".$value['nom'].'</a></td>';   
+                            echo "<tr><td><br> <a href='ListePromoAdmin?formation=".$value['IDformation']."'>".$value['nom'].'</a></td>';   
                             echo '</tr>';
                             // echo '<pre>';
                             // print_r($resultat);
