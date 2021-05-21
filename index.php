@@ -91,7 +91,7 @@ if (isset($_SESSION['loggedin'])){
                 $example1 -> AfficheListeStagiaires();
             });
 
-            $route->add('ListePromoAdmin', function(){ 
+            $route->add('ListePromoFormateur', function(){ 
                 $example1 = new FormateurUser; 
                 $example1 -> AffichePageUneFormation();
             });
