@@ -35,7 +35,7 @@ if (isset($_SESSION['loggedin'])){
                 $example -> Accueil();
             });
             
-            $route->add('Formateurs/creationFormateur', function(){ 
+            $route->add('creationFormateur', function(){ 
                 $example1 = new AdminUser; 
                 $example1 -> AjouterFormateur();
             });
