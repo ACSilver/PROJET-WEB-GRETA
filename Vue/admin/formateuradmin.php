@@ -88,6 +88,7 @@ $resultat = $query->fetchAll();
             echo '</tr>';
 
         }
+        
                             
 
     ?>
