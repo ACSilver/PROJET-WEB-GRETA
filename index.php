@@ -78,6 +78,25 @@ if (isset($_SESSION['loggedin'])){
                 $example -> Accueil();
             });
 
+            $route->add('Formations', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageFormations();
+            });
+            $route->add('Stagiaires', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageStagiaires();
+            });
+            $route->add('ListeStagiaires', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AfficheListeStagiaires();
+            });
+
+            $route->add('ListePromoAdmin', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageUneFormation();
+            });
+
+
         }
         
         // toutes les routes de Stagiaires
