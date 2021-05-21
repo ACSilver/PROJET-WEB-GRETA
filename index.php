@@ -107,6 +107,11 @@ if (isset($_SESSION['loggedin'])){
                 $example = new StagiaireUser; 
                 $example -> Accueil();
             });
+
+            $route->add('Formations', function(){ 
+                $example1 = new StagiaireUser; 
+                $example1 -> AffichePageFormations();
+            });
         }
     }
 }

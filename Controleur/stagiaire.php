@@ -9,4 +9,7 @@ class StagiaireUser {
         include ('Vue/stagiaire/accueilstagiaire.php');
     }
     
+    public function  AffichePageFormations() {
+        include_once ('Vue/stagiaire/formationstagiaire.php');
+    }
 }
