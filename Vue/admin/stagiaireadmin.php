@@ -59,10 +59,23 @@ $stagiaire = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($stagiaire as $key => $value) {
-                            echo '<tr><td><br> <a href="Grille" >'.$value['nom'].'</a></td>'; 
+                            echo '<tr>
+                            <td>
+                            <br> 
+
+                            <form action="GrilleStagaire" method="post">
+                                <p>formation <input type="text" name="formation" /></p>
+                                <p>Promo <input type="text" name="promo" /></p>
+                                <p><input type="submit"  name="nomStagiaire" value=" '.$value['nom'] .' "></p>
+                            </form>
+                            
+                            </td>'; 
                             echo '</tr>';
                         }
                     ?>
+
+
+
                 </tbody>
             </table>
         </div>

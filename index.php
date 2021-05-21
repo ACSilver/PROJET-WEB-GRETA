@@ -68,6 +68,15 @@ if (isset($_SESSION['loggedin'])){
                 $example1 -> AffichePageUneFormation();
             });
 
+            // Grille Stagiaire
+
+            $route->add('GrilleStagaire', function(){ 
+                $example1 = new GrilleCompetence; 
+                $example1 -> FindGrille($_POST["nomStagiaire"],$_POST["formation"],$_POST["promo"]);
+            });
+
+
+
         }
         
         // toutes les routes de Formateurs
