@@ -1,5 +1,7 @@
 <?php
 
+require("Model/connect.php");
+
 $IDformation=$_GET["formation"]; // On recupere l'id de la promotion dans l'URL
 
 $db = new db_connector(DB_DATABASE);
@@ -10,7 +12,7 @@ $AfficherPromotion=("SELECT promo
                     FROM promo
                     INNER JOIN lienpromo ON promo.IDpromo=lienpromo.IDpromo
                     INNER JOIN formation ON lienpromo.IDformation=formation.IDformation
-                    WHERE formation.$IDformation=1;");
+                    WHERE formation.IDformation=$IDformation;");
 
 $query = $connexion->prepare($AfficherPromotion);
 
