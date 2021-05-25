@@ -8,11 +8,17 @@ class GrilleCompetence{
 
     function FindGrille ($nomStagiaire,$idformation,$promo)
     {
+
+        if ($_SESSION["grilleStagiaire"]) {
+            unset($_SESSION["grilleStagiaire"]);
+        }
+
         $this->Promo = $promo;
         $this->Formation = $idformation;
         $this->nomStagiaire = $nomStagiaire;
 
         $grille = new ReqGrille;
+
 
         // avec tout ces infomartion on arive a avoir le modile grille
 
@@ -20,79 +26,27 @@ class GrilleCompetence{
 
         $this->idmodele = $idModele;
 
-
-
-
-
-        // $ListLibelle =  $grille->getLibelle($this->idmodele);
-
-        
-
-        // $ListRef =  $grille->getReference($ListLibelle[0]['IDlibelle']);;
-
-        // array_push($ListLibelle[0],$ListRef);
-
-
-        // $ListComp=  $grille->getCompetence($ListLibelle[0][3][1]['IDref']);
-
-        // array_push($ListLibelle[0][3][1],$ListComp);
-
-        // $lenote =  $grille->getNote($ListLibelle[0][3][1][3][0]['IDcompetence']);
-
-        // array_push($ListLibelle[0][3][1][3][0],$lenote);
-
-        // echo '<pre>';
-        // print_r($ListLibelle) ;
-
-
-
-
-
-
-
         $ListLibelle =  $grille->getLibelle($this->idmodele);
 
-        foreach ($ListLibelle as $keylib => $lib) {
-            
-            $ListRef =  $grille->getReference($ListLibelle[$lib]['IDlibelle']);
-
+        foreach ($ListLibelle as $key => $value){
+            $ListRef =  $grille->getReference($ListLibelle[$key]['IDlibelle']);;
+            array_push($ListLibelle[$key],$ListRef);
             foreach ($ListRef as $keyref => $ref) {
-
-                $ListComp=  $grille->getCompetence($ListLibelle[$lib][$ref][1]['IDref']);
-
-                foreach ($ListComp as $key => $value) {
-
-
-                    $lenote =  $grille->getNote($ListLibelle[$lib][$ref][1][3][0]['IDcompetence']);
-
-                    array_push($ListLibelle[$lib][$ref][1][3][0],$lenote);
-
+                $ListComp=  $grille->getCompetence($ListLibelle[$key][3][$keyref]['IDref']);
+                array_push($ListLibelle[$key][3][$keyref],$ListComp);
+                foreach ($ListComp as $keycomp => $value) {
+                    $lenote =  $grille->getNote($ListLibelle[$key][3][$keyref][3][$keycomp]['IDcompetence']);
+                    array_push($ListLibelle[$key][3][$keyref][3][$keycomp],$lenote);
                 }
             }
-
         }
 
-        echo '<pre>';
-        print_r($ListLibelle) ;
+        $_SESSION["grilleStagiaire"] = $ListLibelle;
 
-
-
-        
-
-
-
-
+        include_once ('Vue/grillev2.php');
 
 
     }
-
-        
-
-
-
-
-
-
 
 }
 
