@@ -1,11 +1,11 @@
 <?php 
 
 class ReqGrille{
-    function getIdModileGrille($formation,$Promo) {
+    function getIdModileGrille($formation) {
         try {
             $db = new db_connector(DB_DATABASE);
             $connexion = $db->connexion();
-            $req = "SELECT IDmodeleGrille  FROM modelegrille where IDformation = $formation and IDpromo = $Promo "; //Récuperer le dernier ID de la table
+            $req = "SELECT IDmodeleGrille  FROM modelegrille where IDformation = $formation"; //Récuperer le dernier ID de la table
             $query = $connexion->prepare($req);
             $query->execute();
             $resultat = $query->fetchAll();
