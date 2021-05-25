@@ -9,7 +9,7 @@ $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherListeStagiaire=("SELECT nom
+$AfficherListeStagiaire=("SELECT *
                         FROM stagiaire as S
                         INNER JOIN lienstagiaire AS LS ON S.IDstagiaire=LS.IDstagiaire 
                         WHERE LS.IDformation=$IDformation AND LS.IDpromo=$IDpromo");
@@ -59,18 +59,22 @@ $stagiaire = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($stagiaire as $key => $value) {
-                            echo '<tr>
-                            <td>
-                            <br> 
 
-                            <form action="GrilleStagaire" method="post">
-                                <p>formation <input type="text" name="formation" /></p>
-                                <p>Promo <input type="text" name="promo" /></p>
-                                <p><input type="submit"  name="nomStagiaire" value=" '.$value['nom'] .' "></p>
-                            </form>
-                            
-                            </td>'; 
+                            echo '<tr><td><br> <a href="GrilleStagaire?formation='.$IDformation.'&promo='.$value['IDpromo'].'&Idstag='.$value['IDstagiaire']. '"'.'>'.$value['nom'].'</a></td>'; 
                             echo '</tr>';
+
+                            // echo '<tr>
+                            // <td>
+                            // <br> 
+
+                            // <form action="GrilleStagaire" method="post">
+                            //     <p>formation <input type="text" name="formation" /></p>
+                            //     <p>Promo <input type="text" name="promo" /></p>
+                            //     <p><input type="submit"  name="nomStagiaire" value=" '.$value['nom'] .' "></p>
+                            // </form>
+                            
+                            // </td>'; 
+                            // echo '</tr>';
                         }
                     ?>
 

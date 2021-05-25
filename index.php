@@ -72,10 +72,8 @@ if (isset($_SESSION['loggedin'])){
 
             $route->add('GrilleStagaire', function(){ 
                 $example1 = new GrilleCompetence; 
-                $example1 -> FindGrille($_POST["nomStagiaire"],$_POST["formation"],$_POST["promo"]);
+                $example1 -> FindGrille($_GET["Idstag"],$_GET["formation"],$_GET["promo"]);
             });
-
-
 
         }
         

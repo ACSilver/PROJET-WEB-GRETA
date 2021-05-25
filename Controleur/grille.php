@@ -5,8 +5,6 @@ require("Model/ReqGrille.php");
 
 class GrilleCompetence{
 
-
-
     function FindGrille ($nomStagiaire,$idformation,$promo)
     {
         require('Model/connect.php');
@@ -53,7 +51,7 @@ class GrilleCompetence{
 
 
 
-    
+
 
 }
 

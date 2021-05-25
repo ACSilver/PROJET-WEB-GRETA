@@ -58,6 +58,7 @@ $resultat = $query->fetchAll();
                 <!-- <input type="button" class="btn btn-warning" value="Modifier formation" > -->
                 <!-- <input type="button" class="btn btn-danger" value="Désactiver formation" > -->
 
+
                 <tbody>
                     <?php 
                         foreach($resultat as $key => $value) {
@@ -66,6 +67,11 @@ $resultat = $query->fetchAll();
                             // echo '<pre>';
                             // print_r($resultat);
                             // echo '</pre>';
+
+                            // echo '
+                            // <form action=" ListePromoAdmin'.'/'.$value['IDformation'].'/Formation'.'"'. ' method="post">
+                            //     <p><input type="submit" value="OK"></p>
+                            // </form>';
                         }
                         
                     ?>
