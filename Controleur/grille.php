@@ -2,14 +2,16 @@
 
 require("Model/ReqGrille.php");
 
+
 class GrilleCompetence{
 
 
 
     function FindGrille ($nomStagiaire,$idformation,$promo)
     {
+        require('Model/connect.php');
 
-        if ($_SESSION["grilleStagiaire"]) {
+        if (isset($_SESSION["grilleStagiaire"])) {
             unset($_SESSION["grilleStagiaire"]);
         }
 
@@ -18,7 +20,6 @@ class GrilleCompetence{
         $this->nomStagiaire = $nomStagiaire;
 
         $grille = new ReqGrille;
-
 
         // avec tout ces infomartion on arive a avoir le modile grille
 
@@ -47,6 +48,12 @@ class GrilleCompetence{
 
 
     }
+
+
+
+
+
+    
 
 }
 

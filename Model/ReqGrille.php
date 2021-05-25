@@ -1,9 +1,6 @@
 <?php 
 
-    require("connect.php");
-
 class ReqGrille{
-    
     function getIdModileGrille($formation,$Promo) {
         try {
             $db = new db_connector(DB_DATABASE);

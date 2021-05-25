@@ -28,7 +28,7 @@ class Auth {
 
       }
 
-      require("Model/connect.php");
+      require_once("Model/connect.php");
 
 
       if (!isset($_POST['username'], $_POST['password']) ) {
