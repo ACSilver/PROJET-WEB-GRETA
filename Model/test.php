@@ -1,12 +1,12 @@
 <?php
 
 //requete pour ajouter un stagiaire
-$AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, IDformation, IDsecurité) 
-                    VALUES($nom, $mail, $IDformation, $IDsecurité)");
+$AjoutStagiaire=("INSERT INTO 'stagiaire'(nom, mail, IDsecurité) 
+                    VALUES($nom, $mail, $IDsecurité)");
 //
 //requete pour ajouter un formateur
-$AjoutFormateur=("INSERT INTO 'formateur'(nom, IDformation, IDsecurité) 
-                    VALUES($nom, $IDformation, $IDsecurité)");
+$AjoutFormateur=("INSERT INTO 'formateur'(nom, IDsecurité) 
+                    VALUES($nom, $IDsecurité)");
 //
 //requete pour ajouter une formation
 $AjoutFormation="INSERT INTO `formation`(`nom`, `nbHeures`) VALUES ('$nom',$nbHeures)";
@@ -18,7 +18,7 @@ $DesactiveFormation=("UPDATE formation SET actif=0 WHERE IDformation=$IDformatio
 $DesactiveFormateur=("UPDATE formateur SET actif=0 WHERE IDformateur=$IDformateur");
 //
 //requete pour ajouter une grille de competence
-$AjoutGrille=("INSERT INTO 'modeleGrille(IDformation)' VALUES($IDformation)");
+$AjoutGrille=("INSERT INTO 'modeleGrille(IDformation, IDpromo)' VALUES($IDformation, $IDpromo)");
 //
 //requete pour ajouter un libellé
 $AjoutLibelle=("INSERT INTO 'libellé(libellé, IDmodeleGrille)' VALUES($libellé, $IDmodeleGrille)");
@@ -43,8 +43,8 @@ $LierFormateurFormation=("INSERT INTO 'lienformateur(IDformateur, IDformation)'
                             VALUES($IDformateur, $IDformation)");
 //
 //requete pour lier un stagiaire et une formation (dateEntree et dateSortie peuvent etre nulle)
-$LierStagiaireFormation=("INSERT INTO 'lienstagiaire(IDstagiaire, IDformation, dateEntree, dateSortie)' 
-                            VALUES($IDstagiaire, $IDformation, $dateEntree, $dateSortie)");
+$LierStagiaireFormation=("INSERT INTO 'lienstagiaire(IDstagiaire, IDformation, IDpromo, dateEntree, dateSortie)' 
+                            VALUES($IDstagiaire, $IDformation, $IDpromo, $dateEntree, $dateSortie)");
 //
 //requete pour lier une promo a une formation
 $LierPromoFormation=("INSERT INTO 'lienpromo(IDpromo, IDformation)' VALUES($IDpromo, $IDformation)");
@@ -93,7 +93,6 @@ $ListeStagiaire=("SELECT nom FROM stagiaire");
 $RecupererLoginMDP=("SELECT identifiant FROM securite WHERE EXISTS(
                     SELECT identifiant, mdp FROM securite WHERE identifiant=$identifiant AND mdp=$mdp)");
 //
-//
 //requete pour afficher promotion
 $AfficherPromotion=("SELECT promo 
                     FROM promo");
@@ -119,10 +118,8 @@ $RecupererLibelle=("SELECT libelle
 $RecupererReference=("SELECT descRef
                         FROM ref
                         WHERE IDlibelle=$IDlibelle");
+//
 //requete pour recuperer toutes les competences d'une reference
 $AfficherGrille=("SELECT descCompetence 
                 FROM competence 
                 WHERE IDref=$IDref");
-//
-//requete pour que le stagiaire selectionne la grille qu'il veut
-$SelectionGrilleParStagiaire=("SELECT promo FROM ");
