@@ -68,6 +68,15 @@ if (isset($_SESSION['loggedin'])){
                 $example1 -> AffichePageUneFormation();
             });
 
+            // Grille Stagiaire
+
+            $route->add('GrilleStagaire', function(){ 
+                $example1 = new GrilleCompetence; 
+                $example1 -> FindGrille($_POST["nomStagiaire"],$_POST["formation"],$_POST["promo"]);
+            });
+
+
+
         }
         
         // toutes les routes de Formateurs
@@ -78,6 +87,25 @@ if (isset($_SESSION['loggedin'])){
                 $example -> Accueil();
             });
 
+            $route->add('Formations', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageFormations();
+            });
+            $route->add('Stagiaires', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageStagiaires();
+            });
+            $route->add('ListeStagiaires', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AfficheListeStagiaires();
+            });
+
+            $route->add('ListePromoFormateur', function(){ 
+                $example1 = new FormateurUser; 
+                $example1 -> AffichePageUneFormation();
+            });
+
+
         }
         
         // toutes les routes de Stagiaires
@@ -87,6 +115,11 @@ if (isset($_SESSION['loggedin'])){
             $route->add('Accueil', function(){ 
                 $example = new StagiaireUser; 
                 $example -> Accueil();
+            });
+
+            $route->add('Formations', function(){ 
+                $example1 = new StagiaireUser; 
+                $example1 -> AffichePageFormations();
             });
         }
     }

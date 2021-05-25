@@ -2,17 +2,11 @@
 
 require("Model/connect.php");
 
-$IDformation=$_GET["formation"]; // On recupere l'id de la promotion dans l'URL
-$IDpromo=$_GET["promo"];
-
 $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherListeStagiaire=("SELECT nom
-                        FROM stagiaire as S
-                        INNER JOIN lienstagiaire AS LS ON S.IDstagiaire=LS.IDstagiaire 
-                        WHERE LS.IDformation=$IDformation AND LS.IDpromo=$IDpromo");
+$AfficherListeStagiaire=("SELECT nom FROM stagiaire");
 
 $query=$connexion->prepare($AfficherListeStagiaire);
 
@@ -26,7 +20,7 @@ $stagiaire = $query->fetchAll();
 <html>
 
 <head>
-  <title>Stagiaires Admin</title>
+  <title>Stagiaires Formateur</title>
   <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <script src="../../js/bootstrap.js"> </script>
@@ -34,7 +28,7 @@ $stagiaire = $query->fetchAll();
 
 <header>
 
-  <?php include("headeradmin.php"); ?>
+  <?php include("headerformateur.php"); ?>
 
 </header>
 
@@ -59,23 +53,10 @@ $stagiaire = $query->fetchAll();
                 <tbody>
                     <?php 
                         foreach($stagiaire as $key => $value) {
-                            echo '<tr>
-                            <td>
-                            <br> 
-
-                            <form action="GrilleStagaire" method="post">
-                                <p>formation <input type="text" name="formation" /></p>
-                                <p>Promo <input type="text" name="promo" /></p>
-                                <p><input type="submit"  name="nomStagiaire" value=" '.$value['nom'] .' "></p>
-                            </form>
-                            
-                            </td>'; 
+                            echo '<tr><td><br> <a href="" >'.$value['nom'].'</a></td>'; 
                             echo '</tr>';
                         }
                     ?>
-
-
-
                 </tbody>
             </table>
         </div>
