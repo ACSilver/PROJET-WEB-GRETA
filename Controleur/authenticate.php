@@ -12,22 +12,6 @@ class Auth {
 
     public function ValidatedUser() {
 
-      // If the user is not logged in redirect to the login page...
-      if (isset($_SESSION['loggedin']) and  isset($_SESSION['usertype']))  {
-
-         if ($_SESSION['usertype'] ==  '0') {
-            header("LOCATION: http://localhost/admin");
-         }
-        elseif ($_SESSION['usertype'] ==  '1') {
-            header("LOCATION: http://localhost/formateur");
-         }
-        elseif ($_SESSION['usertype'] ==  '2') {
-            header("LOCATION: http://localhost/stagiaire");
-         }
-         exit;
-
-      }
-
       require_once("Model/connect.php");
 
 
@@ -56,7 +40,6 @@ class Auth {
          if ($stmt->rowCount() > 0) {
             // Account exists, now we verify the password.
             $data = $stmt->fetchAll();
-            print_r($data); 
             $password = $data['0']['mdp'];
             $mdp = $_POST['password'];
             $grainDeSel= $data['0']['grainDeSel'];;

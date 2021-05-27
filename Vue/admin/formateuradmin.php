@@ -44,17 +44,13 @@ $resultat = $query->fetchAll();
 
 
 <body class="centrer  ">
-
-
-
-  <div class="contenu centrer" style="margin-top: 5%;" ;>
-
+  <div class="centrer" style="margin-top: 5%;" ;>
     <p class=" centrer">Bienvenue, sur la page des formateurs! <br /> Merci d'utiliser notre service de technologie 2.0
       !
     </p>
   </div>
 
-  <table class="table">
+  <table class="table contenu">
     <thead>
       <tr>
         <th>Formations</th>
@@ -88,21 +84,13 @@ $resultat = $query->fetchAll();
             echo '</tr>';
 
         }
-        
-                            
+                   
 
     ?>
-
-
-
     </tbody>
-
-
   </table>
-
-
-
 </body>
+
 <footer>
   <?php include("Vue/footer.php"); ?>
 </footer>
