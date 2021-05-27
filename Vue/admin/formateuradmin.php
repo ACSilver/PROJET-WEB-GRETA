@@ -63,7 +63,7 @@ $resultat = $query->fetchAll();
     </thead>
 
     
-<div style="padding-top: -50px">
+<div >
     <input type="button" class="btn btn-success" value="Ajouter Formateur"><a href="creationFormateur"></a>
     <input type="button" class="btn btn-warning" value="Modifier formateur">
     <input type="button" class="btn btn-danger" value="Désactiver formateur">
