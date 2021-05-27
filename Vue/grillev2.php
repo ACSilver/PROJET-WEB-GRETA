@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <script src="../../js/bootstrap.js"> </script>
+  <script src="../../js/script.js"> </script>
+  <script src="../js/jquery-1.9.0.min.js"></script>
 </head>
 
 
@@ -18,7 +20,7 @@
 
 
 <body class="centrer  ">
-
+    <?php // print_r($_SESSION["grilleStagiaire"])?>
     <div class="contenu centrer" style="margin-top: 5%;" ;>
         <h1 class="attestationTitre">Attestation de Compétences</h1>
         <h2 class="formationTitre">//IntituléFormation</h2> <!-- value -> variable-->
@@ -70,8 +72,6 @@
                     <?php
 
                     if ($_SESSION["grilleStagiaire"]) {
-
-
                         foreach($_SESSION["grilleStagiaire"] as $key => $value){
                             echo '
                                 <tr class="gridLibelle">
@@ -86,9 +86,6 @@
                                     <td class="border1 colonne1">Dépassé</td>
                                 </tr>
                             ';
-        
-        
-        
         
                             foreach ($_SESSION["grilleStagiaire"][$key][3] as $numref => $value){
                             
@@ -105,39 +102,38 @@
                                     
                                 </tr> ';
             
-            
-            
                                 foreach ($_SESSION["grilleStagiaire"][$key][3][$numref][3] as $numcompt => $value){
                                     
                                     //Permet pour chaque bouton radio de la grille d'avoir une valeur unique associée à l'attribut name
                                     $radioButtonName=strval($_SESSION["grilleStagiaire"][$key][3][$numref]["IDref"]).strval($_SESSION["grilleStagiaire"][$key][3][$numref][3][$numcompt]['IDcompetence']);
-                                    
+                                    $NoteValue=$_SESSION["grilleStagiaire"][$key][3][$numref][3][$numcompt][3][0]["valeur"];
+                                
                                     echo '
-                                    <tr class="gridComp">
+                                    <tr class="gridComp" id='.$_SESSION["grilleStagiaire"][$key][3][$numref][3][$numcompt]["IDcompetence"].'>
                                         <td class="border1">
                                             <input type="checkbox" name="record">
                                         </td>
                                         <td class="border1 competence" name="edit-item" >'. $_SESSION["grilleStagiaire"][$key][3][$numref][3][$numcompt]['descCompetence']   .'</td>
                                         <td class="border1">
-                                            <input type="radio" name='.$radioButtonName.' />
+                                            <input type="radio" id="0" onclick="changeNote(this)" name='.$radioButtonName.' '.($NoteValue==0 ? "checked" : " " ).'/>
                                         </td>
                                         <!-- Regrouper les boutons sous un même "name" pour en selectionner un seul du groupe-->
                                         <td class="border1">
-                                            <input type="radio" name='.$radioButtonName.' />
+                                            <input type="radio" id="1" onclick="changeNote(this)" name='.$radioButtonName.' '.($NoteValue==1 ? "checked" : " " ).'/>
                                         </td>
                                         <td class="border1">
-                                            <input type="radio" name='.$radioButtonName.' />
+                                            <input type="radio" id="2" onclick="changeNote(this)" name='.$radioButtonName.' '.($NoteValue==2 ? "checked" : " " ).'/>
                                         </td>
                                         <td class="border1">
-                                            <input type="radio" name='.$radioButtonName.' />
+                                            <input type="radio" id="3" onclick="changeNote(this)" name='.$radioButtonName.' '.($NoteValue==3 ? "checked" : " " ).'/>
                                         </td>
                                     </tr>
                                     ';
                                 }
                             }
                         }
-                    }
-                    ?>
+                    } 
+                    ?> 
             </table>
         </div>
 
