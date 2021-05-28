@@ -30,7 +30,7 @@ class AdminUser {
     // lien admin avec ses actions
 
     public function  AffichePageFormateurs() {
-        include_once ('Vue/admin/formateuradmin.php');
+        include_once('Vue/admin/formateuradmin.php');
     }
 
     public function AjouterFormateur() {

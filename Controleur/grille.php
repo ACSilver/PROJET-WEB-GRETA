@@ -29,7 +29,7 @@ class GrilleCompetence{
 
         foreach ($ListLibelle as $key => $value){
             $ListRef =  $grille->getReference($ListLibelle[$key]['IDlibelle']);;
-            array_push($ListLibelle[$key],$ListRef);
+            array_push($ListLibelle[$key], $ListRef);
             foreach ($ListRef as $keyref => $ref) {
                 $ListComp=  $grille->getCompetence($ListLibelle[$key][3][$keyref]['IDref']);
                 array_push($ListLibelle[$key][3][$keyref],$ListComp);

@@ -38,7 +38,7 @@ class Route {
         }
         
     }
-    
+
     /**
      * Reception des requettes $uri et routage de la valeur
      * Construit la sous-classe selectionnée

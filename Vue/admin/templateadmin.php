@@ -17,11 +17,12 @@
 <body>
 
 
-<div>
+  <div>
 
-  <div class='center contenue'>
-    <?php //include($_SESSION['pagename'].".php"); ?>
-  </div>
+    <div class='center contenue'>
+      <?php //include($_SESSION['pagename'].".php"); 
+      ?>
+    </div>
 
 </body>
 

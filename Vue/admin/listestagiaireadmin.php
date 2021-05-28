@@ -6,9 +6,9 @@ $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherListeStagiaire=("SELECT nom FROM stagiaire");
+$AfficherListeStagiaire = ("SELECT nom FROM stagiaire");
 
-$query=$connexion->prepare($AfficherListeStagiaire);
+$query = $connexion->prepare($AfficherListeStagiaire);
 
 $query->execute();
 
@@ -20,21 +20,21 @@ $stagiaire = $query->fetchAll();
 <html>
 
 <head>
-  <title>Stagiaires Admin</title>
-  <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <script src="../../js/bootstrap.js"> </script>
+    <title>Stagiaires Admin</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+    <script src="../../js/bootstrap.js"> </script>
 </head>
 
 <header>
 
-  <?php include("headeradmin.php"); ?>
+    <?php include("headeradmin.php"); ?>
 
 </header>
 
 
-<<body class="centrer  "> 
-    <div class="contenu centrer " style="margin-top: 5%;" >
+<<body class="centrer  ">
+    <div class="contenu centrer " style="margin-top: 5%;">
 
         <p class=" centrer">Bienvenue, sur la page des stagiaires! <br /> Merci d'utiliser notre service de technologie 2.0 !</p>
 
@@ -47,23 +47,23 @@ $stagiaire = $query->fetchAll();
                 </thead>
 
                 <!-- <input type="button" class="btn btn-success" value="Ajouter Promotion" > -->
-                <input type="button" class="btn btn-warning" value="Modifier Stagiaire" >
-                <input type="button" class="btn btn-danger" value="Désactiver Stagiaire" >
+                <input type="button" class="btn btn-warning" value="Modifier Stagiaire">
+                <input type="button" class="btn btn-danger" value="Désactiver Stagiaire">
 
                 <tbody>
-                    <?php 
-                        foreach($stagiaire as $key => $value) {
-                            echo '<tr><td><br> <a href="" >'.$value['nom'].'</a></td>'; 
-                            echo '</tr>';
-                        }
+                    <?php
+                    foreach ($stagiaire as $key => $value) {
+                        echo '<tr><td><br> <a href="" >' . $value['nom'] . '</a></td>';
+                        echo '</tr>';
+                    }
                     ?>
                 </tbody>
             </table>
         </div>
     </div>
-</body>
-<footer>
-  <?php include("Vue/footer.php"); ?>
-</footer>
+    </body>
+    <footer>
+        <?php include("Vue/footer.php"); ?>
+    </footer>
 
 </html>
