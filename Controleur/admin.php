@@ -27,7 +27,7 @@ class AdminUser {
 
 
 
-    // lien formateurs avec ses actions
+    // lien admin avec ses actions
 
     public function  AffichePageFormateurs() {
         include_once ('Vue/admin/formateuradmin.php');
