@@ -13,7 +13,7 @@
 
 	<?php include("Vue/header.php"); ?>
 
-	<div class="contenu" style="margin-top: 5%; " ;>
+	<div class="contenu" style="margin-top: 56px; " ;>
 		<p>
 			<div>
 				<h3>Page d'introduction</h3>
