@@ -46,7 +46,7 @@ $stagiaire = $query->fetchAll();
                     </tr>
                 </thead>
 
-                <!-- <input type="button" class="btn btn-success" value="Ajouter Promotion" > -->
+                <input type="button" class="btn btn-success" value="Ajouter Stagiaire" >
                 <input type="button" class="btn btn-warning" value="Modifier Stagiaire">
                 <input type="button" class="btn btn-danger" value="Désactiver Stagiaire">
 
