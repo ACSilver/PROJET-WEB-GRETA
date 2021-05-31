@@ -57,7 +57,7 @@ $promos = $query2->fetchAll();
 <body class="centrer  ">
 
 
-  <div class="contenu centrer " style="margin-top: 5%;">
+  <div class="contenu centrer " >
     <p class=" centrer">Bienvenue, sur la page des promotions! <br /> Merci d'utiliser notre service de technologie 2.0!</p>
 
     <div>

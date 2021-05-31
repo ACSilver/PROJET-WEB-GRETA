@@ -44,7 +44,7 @@ $resultat = $query->fetchAll();
 
 
 <body class="centrer  ">
-  <div class="centrer" style="margin-top: 5%;" ;>
+  <div class="centrer"  ;>
     <p class=" centrer">Bienvenue, sur la page des formateurs! <br /> Merci d'utiliser notre service de technologie 2.0
       !
     </p>
