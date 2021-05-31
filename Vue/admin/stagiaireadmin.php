@@ -9,7 +9,7 @@ $db = new db_connector(DB_DATABASE);
 
 $connexion = $db->connexion();
 
-$AfficherListeStagiaire=("SELECT *
+$AfficherListeStagiaire=("SELECT DISTINCT *
                         FROM stagiaire as S
                         INNER JOIN lienstagiaire AS LS ON S.IDstagiaire=LS.IDstagiaire 
                         WHERE LS.IDformation=$IDformation AND LS.IDpromo=$IDpromo");
